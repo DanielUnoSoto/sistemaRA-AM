@@ -17,4 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
+
+Route::get('/casa',function(){
+    return view('principal');
+});
+Route::resource('unidadacademica','UnidadAcademicaController');
+Route::resource('rol','TipoUsuarioController');
+Route::resource('user','UserController');
