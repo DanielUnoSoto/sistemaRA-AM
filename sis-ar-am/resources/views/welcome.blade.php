@@ -1,4 +1,5 @@
 <!doctype html>
+{{-- @extends('layouts.app') --}}
 <html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
@@ -13,7 +14,11 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
+                
+                background: url("/img/background.jpg");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
                 color: #636b6f;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
@@ -39,6 +44,7 @@
                 position: absolute;
                 right: 10px;
                 top: 18px;
+                color: #fff;
             }
 
             .content {
@@ -46,11 +52,12 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 74px;
+                color: #fff;
             }
 
             .links > a {
-                color: #636b6f;
+                color: #fff;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
@@ -72,23 +79,19 @@
                         <a href="{{ url('/home') }}">Home</a>
                     @else
                         <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
+                        <a href="{{ url('/login') }}">Plantel Academido</a>
+                        <a href="{{ url('/login') }}">Administardor</a>
+                        <a href="{{ url('/login') }}">Autoridad Academica</a>
+                        {{-- <a href="{{ url('/register') }}">Register</a> --}}
                     @endif
                 </div>
             @endif
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Sistema Control-Asisencia
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                
             </div>
         </div>
     </body>
