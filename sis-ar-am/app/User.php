@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id','nombre','apellido' ,'codsis','ci','tipoUsuario','email', 'password',
+        'id','nombre','apellido' ,'codsis','ci','rol','email', 'password',
     ];
 
     /**
@@ -26,7 +26,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    public function tipousuario(){
-        return $this->belongsTo('App/TipoUsuario');
+    public function rol(){
+        return $this->belongsTo('App/Rol');
+    }
+    public function clase(){
+        return $this->hasMany('App/Rol');
     }
 }
