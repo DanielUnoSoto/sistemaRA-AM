@@ -2,7 +2,7 @@
     <nav class="sidebar-nav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="icon-speedometer"></i> Administrador</a>
+                <a class="nav-link" href="#"><i class="fa fa-user"></i> Administrador</a>
             </li>
             <li class="nav-title">
                 Menú
@@ -10,38 +10,20 @@
 
            
             <li class="nav-item">
-            <a class="nav-link" href="{{url('unidadacademica')}}"><i class="fa fa-list"></i> Unidad Academica</a>
+            <a class="nav-link" href="{{url('unidadacademica')}}"><i class="fa fa-school"></i> Unidad Academica</a>
             </li>
-            
-            {{-- <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-tasks"></i> Productos</a>
-            </li> --}}
-              
+
     
             <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i> Asignacion Materia </a>
+            <a class="nav-link" href="{{url('clases')}}"><i class="fa fa-book"></i> Asignacion Materia </a>
             </li>
-
-            {{-- <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-users"></i> Proveedores</a>
-            </li>
-               
-           
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-suitcase"></i> Ventas</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fa fa-users"></i> Clientes</a>
-            </li> --}}
-                
             
             <li class="nav-item">
-                <a class="nav-link" href="{{url('user')}}"><i class="fa fa-user"></i> Usuarios</a>
+                <a class="nav-link" href="{{url('user')}}"><i class="fa fa-users"></i> Usuarios</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{url('rol')}}"><i class="fa fa-list"></i> Roles</a>
+                <a class="nav-link" href="{{url('roles')}}"><i class="fa fa-list"></i> Roles</a>
             </li>
                 
             
