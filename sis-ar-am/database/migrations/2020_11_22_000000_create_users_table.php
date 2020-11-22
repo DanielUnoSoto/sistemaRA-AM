@@ -19,7 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('apellido');
             $table->string('codsis')->unique();
             $table->string('ci');
-      
+            $table->integer('rol')->unsigned();
+
+            $table->foreign("rol")->references("id")->on("roles");
             // ->onDelete("cascade")
             // ->onUpdate("cascade");
 
@@ -28,6 +30,8 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+        DB::table('users')->insert(array('id'=>'1','nombre'=>'David','apellido'=>'Escalera','codsis'=>'202020201','ci'=>'12345678','rol'=>'1'));
+
     }
 
     /**

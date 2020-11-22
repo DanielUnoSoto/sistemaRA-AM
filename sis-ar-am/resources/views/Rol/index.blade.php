@@ -11,44 +11,48 @@
         <div class="card">
             <div class="card-header">
 
-               <h2>Listado de Unidades Academicas</h2><br/>
+               <h2>Listado de Tipos de usuario</h2><br/>
               
-                <button class="btn btn-primary btn-lg rounded" type="button" data-toggle="modal" data-target="#abrirmodal">
+                {{-- <button class="btn btn-primary btn-lg rounded" type="button" data-toggle="modal" data-target="#abrirmodal">
                     <i class="fa fa-plus fa-1x"></i>&nbsp;&nbsp;Agregar Unidad Academica
-                </button>
+                </button> --}}
             </div>
             <div class="card-body">
                 <div class="form-group row">
                     <div class="col-md-6">
-
-                        {!!Form::open(array('url'=>'unidadacademica','method'=>'GET','autocomplete'=>'off'))!!} 
-                                <div class="input-group">
-                                   
-                                    <input type="text" name="buscarTexto" class="form-control" placeholder="Buscar texto" value="{{$buscarTexto}}">
-                                    <button type="submit"  class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
-                                </div>
-                            {{Form::close()}}
+                        {!!Form::open(array('url'=>'roles','method'=>'GET','autocomplete'=>'off','roles'=>'search'))!!}
+                        <div class="input-group">
+                            {{-- <select class="form-control col-md-3">
+                                <option value="nombre">Unidad</option>
+                                <option value="descripcion">Facultad</option>
+                            </select> --}}
+                            <input type="text" name="buscarTexto" class="form-control" placeholder="Buscar texto" value="{{$buscarTexto}}">
+                            <button type="submit"  class="btn btn-primary rounded"><i class="fa fa-search"></i> Buscar</button>
+                        </div>
+                        {{Form::close()}}
+                        
                     </div>
                 </div>
                 <table class="table table-bordered table-striped table-sm">
                     <thead>
                         <tr class="bg-primary">
                            
-                            <th>Unidad</th>
-                            <th>Facultad</th>
-                            {{-- <th>Estado</th> --}}
-                            <th>Editar</th>
-                            <th>Eliminar</th>
+                            {{-- <th>Unidad</th>
+                            <th>Facultad</th> --}}
+                            <th>ID</th>
+                            <th>Tipos de usuarios</th>
+                            {{-- <th>Editar</th>
+                            <th>Eliminar</th> --}}
                         </tr>
                     </thead>
                     <tbody>
                        
-                        @foreach($unidades as $unidad)
+                        @foreach($roles as $key => $rol)
                         
                         <tr>
-                            
-                            <td>{{$unidad->nombre}}</td>
-                            <td>{{$unidad->facultad}}</td>
+                            <td>{{$rol->id}}</td>
+                            <td>{{$rol->rol}}</td>
+                            {{-- <td>{{$unidad->facultad}}</td> --}}
                             {{-- <td>
                                 <button type="button" class="btn btn-success btn-md">
                             
@@ -57,7 +61,7 @@
                                
                             </td> --}}
 
-                            <td>
+                            {{-- <td>
                             <form action="{{route('unidadacademica.update',$unidad->id)}}" method="post">
                                 <button type="button" class="btn btn-primary btn-sm" 
                                 data-toggle="modal"
@@ -68,9 +72,9 @@
                                   <i class="fa fa-edit fa-0.5x"></i> Editar
                                 </button>
                             </form>
-                            </td>
+                            </td> --}}
 
-                            <td>
+                            {{-- <td>
                                      <form action="{{route('unidadacademica.destroy',$unidad->id)}}" method="post">
                                         {{csrf_field()}}
                                         {{method_field('delete')}}
@@ -78,21 +82,21 @@
                                         <i class="fa fa-remove fa-0.5x"></i> Eliminar
                                         </button>
                                     </form>
-                            </td>
+                            </td> --}}
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
                 
                 
-                      {{$unidades->render()}}
+                      {{$roles->render()}}
                    
                 
             </div>
         </div>
         <!-- Fin ejemplo de tabla Listado -->
     </div>
-    <!--Inicio del modal agregar-->
+    {{-- <!--Inicio del modal agregar-->
     <div class="modal fade" id="abrirmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
         <div class="modal-dialog modal-primary modal-lg" role="document">
             <div class="modal-content">
@@ -146,7 +150,7 @@
             </div>
             <!-- /.modal-dialog -->
         </div>
-        <!--Fin del modal-->
+        <!--Fin del modal--> --}}
    
     
 </main>

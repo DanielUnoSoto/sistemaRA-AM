@@ -3,23 +3,23 @@
 <main class="main">
             <!-- Breadcrumb -->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item active"><a href="/">Sistema control de asistencia</a></li>
+                <li class="breadcrumb-item active"><a href="/">Sistema de control de asistencia</a></li>
             </ol>
             <div class="container-fluid">
                 <!-- Ejemplo de tabla Listado -->
                 <div class="card">
                     <div class="card-header">
 
-                       <h2>Listado de Usuarios</h2><br/>
+                       <h2>Listado de Docentes - Materias</h2><br/>
                       
                         <button class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#abrirmodal">
-                            <i class="fa fa-plus fa-1x"></i>&nbsp;&nbsp;Agregar Usuario
+                            <i class="fa fa-plus fa-1x"></i>&nbsp;&nbsp;Asignar Materias
                         </button>
                     </div>
                     <div class="card-body">
                         <div class="form-group row">
                             <div class="col-md-6">
-                            {!!Form::open(array('url'=>'user','method'=>'GET','autocomplete'=>'off','role'=>'search'))!!} 
+                            {!!Form::open(array('url'=>'clases','method'=>'GET','autocomplete'=>'off','role'=>'search'))!!} 
                                   <div class="input-group"> 
                                    
                                     <input type="text" name="buscarTexto" class="form-control" placeholder="Buscar texto" value="{{$buscarTexto}}">
@@ -34,32 +34,32 @@
                                    
                                     <th>Nombre</th>
                                     <th>Apellido</th>
-                                    <th>Codigo SIS</th>
-                                    <th>CI</th>
-                                    <th>Tipo Usuario</th>
-                                    <th>Email</th>
+                                    {{-- <th>Codigo SIS</th> --}}
+                                    {{-- <th>CI</th> --}}
+                                    {{-- <th>Tipo Usuario</th> --}}
+                                    {{-- <th>Email</th> --}}
                                     {{-- <th>Usuario</th> --}}
-                                    <th>Rol</th>
-                                    {{-- <th>Estado</th> --}}
+                                    <th>Materia</th>
+                                    <th>Grupo</th>
                                     <th>Editar</th>
                                     {{-- <th>Cambiar Estado</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
 
-                               @foreach($usuarios as $user)
+                               @foreach($clases as $clase)
                                
                                 <tr>
                                     
-                                    <td>{{$user->nombre}}</td>
-                                    <td>{{$user->apellido}}</td>
-                                    <td>{{$user->codsis}}</td>
-                                    <td>{{$user->ci}}</td>
-                                    <td>{{$user->rol}}</td>
+                                    <td>{{$clase->nombre}}</td>
+                                    <td>{{$clase->apellido}}</td>
+                                    {{-- <td>{{$clase->codsis}}</td> --}}
+                                    {{-- <td>{{$user->ci}}</td> --}}
+                                    {{-- <td>{{$user->rol}}</td> --}}
                                     {{-- <td>{{$user->telefono}}</td> --}}
-                                    <td>{{$user->email}}</td>
-                                    {{-- <td>{{$user->usuario}}</td> --}}
-                                    <td>{{$user->rol}}</td>
+                                    <td>{{$clase->matery}}</td>
+                                    <td>{{$clase->grupo}}</td>
+                                    {{-- <td>{{$user->rol}}</td> --}}
                             
                                  
 
@@ -116,7 +116,7 @@
                             </tbody>
                         </table>
                             
-                            {{$usuarios->render()}}
+                            {{$clases->render()}}
 
                     </div>
                 </div>
@@ -127,7 +127,7 @@
                 <div class="modal-dialog modal-primary modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">Agregar usuario</h4>
+                            <h4 class="modal-title">Asignar Materia</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">×</span>
                             </button>
@@ -136,11 +136,11 @@
                         <div class="modal-body">
                              
 
-                            <form action="{{route('user.store')}}" method="post" class="form-horizontal" enctype="multipart/form-data" >
+                            <form action="{{route('clases.store')}}" method="post" class="form-horizontal" >
                                
                                 {{csrf_field()}}
                                 
-                                @include('User.form')
+                                @include('Clase.form')
 
                             </form>
                         </div>
@@ -174,7 +174,7 @@
 
                                 <input type="hidden" id="id_usuario" name="id_usuario" value="">
                                 
-                                @include('User.form')
+                                @include('Clase.form')
 
                             </form>
                         </div>

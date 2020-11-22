@@ -17,18 +17,18 @@ class UserController extends Controller
  
              $sql=trim($request->get('buscarTexto'));
              $usuarios=DB::table('users')
-             ->join('tipousuario','users.tipoUsuario','=','tipousuario.id')
+             ->join('roles','users.rol','=','roles.id')
              ->select('users.id','users.nombre',
              'users.apellido','users.codsis','users.ci','users.email',
-             'users.tipoUsuario','users.tipoUsuario','users.password','tipousuario.tipoUsuario as rol')
+             'users.rol','users.password','roles.rol')
              ->where('users.nombre','LIKE','%'.$sql.'%')
              ->orwhere('users.codsis','LIKE','%'.$sql.'%')
              ->orderBy('users.id','desc')
-             ->paginate(3);
+             ->paginate(15);
  
               /*listar los roles en ventana modal*/
-             $roles=DB::table('tipousuario')
-             ->select('id','tipoUsuario')->get(); 
+             $roles=DB::table('roles')
+             ->select('id','rol')->get(); 
  
              return view('User.index',["usuarios"=>$usuarios,"roles"=>$roles,"buscarTexto"=>$sql]);
          
@@ -47,7 +47,7 @@ class UserController extends Controller
          $user->apellido = $request->apellido;
          $user->codsis = $request->codsis;
          $user->ci = $request->ci;
-         $user->tipoUsuario = $request->tipoUsuario;
+         $user->rol = $request->rol;
          $user->email = $request->email;
          $user->password = bcrypt( $request->password);
         //  $user->condicion = '1';
@@ -94,7 +94,7 @@ class UserController extends Controller
          $user->apellido = $request->apellido;
          $user->codsis = $request->codsis;
          $user->ci = $request->ci;
-         $user->tipoUsuario = $request->tipoUsuario;
+         $user->roles = $request->roles;
          $user->email = $request->email;
          $user->usuario = $request->usuario;
          $user->password = bcrypt($request->password);

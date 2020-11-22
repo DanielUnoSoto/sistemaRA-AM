@@ -45,17 +45,17 @@
     </div>
 
      <div class="form-group row">
-            <label class="col-md-3 form-control-label" for="tipoUsuario">Rol</label>
+            <label class="col-md-3 form-control-label" for="rol">Rol</label>
             
             <div class="col-md-9">
             
-                <select  class="form-control"  name="tipoUsuario" id="tipoUsuario">
+                <select  class="form-control"  name="rol" id="rol">
                                                 
                 <option value="0" disabled>Seleccione</option>
                 
                     @foreach($roles as $rol)
                     
-                    <option value="{{$rol->id}}">{{$rol->tipoUsuario}}</option>
+                <option value="{{$rol->id}}">{{$rol->rol}}  {{$rol->id}}</option>
                             
                     @endforeach
 

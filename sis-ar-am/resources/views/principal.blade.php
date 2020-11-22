@@ -7,8 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto</title>
     <!-- Icons -->
-    <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
-    <link href="{{asset('css/simple-line-icons.min.css')}}" rel="stylesheet">
+    {{-- <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{asset('css/simple-line-icons.min.css')}}" rel="stylesheet"> --}}
+
+    {{-- Add fontawesome link  --}}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <!-- Main styles for this application -->
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> --}}
@@ -42,16 +45,14 @@
                     <div class="dropdown-header text-center">
                         <strong>Cuenta</strong>
                     </div>
-                    <a class="dropdown-item" href="">
-                        {{-- @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif --}}
+                    
+                    <a class="dropdown-item" href="{{route('logout')}}" 
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <i class="fa fa-lock"></i> Cerrar sesión</a>
+                
 
-                    <form id="logout-form" action="" method="POST" style="display: none;">
-                      
+                    <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
+                        {{ csrf_field() }} 
                     </form>
                 </div>
             </li>
@@ -61,11 +62,11 @@
     <div class="app-body">
 
     @if(Auth::check())
-        @if (Auth::user()->tipoUsuario == 1)
+        @if (Auth::user()->rol == 1)
             @include('plantilla.sidebaradmin')
-        @elseif (Auth::user()->tipoUsuario == 2||Auth::user()->tipoUsuario == 3)
+        @elseif (Auth::user()->rol == 2||Auth::user()->rol == 3||Auth::user()->rol == 5)
             @include('plantilla.sidebarPersonalAcademico')
-        @elseif (Auth::user()->tipoUsuario == 4)
+        @elseif (Auth::user()->rol == 4)
             @include('plantilla.sidebarAutoridaAcademica')
         @else
             
@@ -73,6 +74,7 @@
 
     @endif
    
+          {{-- @include('plantilla.sidebaradmin') --}}
         {{-- @include('plantilla/navbar') --}}
         <!-- Contenido Principal -->
                  @yield('contenido')
