@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\TipoUsuario;
-use Illuminate\Support\Facades\Redirect;
+use App\Rol;
 use DB;
-class TipoUsuarioController extends Controller
+
+class RolController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,14 +15,14 @@ class TipoUsuarioController extends Controller
      */
     public function index(Request $request)
     {
-        // if($request){
-        //     $sql=trim($request->get('buscarTexto'));
-        //     $tipos=DB::table('tipousuario')->where('tipoUsuario','like','%'.$sql.'%')
-        //     ->orderBy('id','desc')
-        //     ->paginate(15);
-        //     return view('TipoUsuario.index',['tipos'=>$tipos,'buscarTexto'=>$sql]);
-        //     // return $tipos;
-        // }
+        if($request){
+            $sql=trim($request->get('buscarTexto'));
+            $roles=DB::table('roles')->where('rol','like','%'.$sql.'%')
+            ->orderBy('id','desc')
+            ->paginate(15);
+            return view('Rol.index',['roles'=>$roles,'buscarTexto'=>$sql]);
+            // return $roles;
+        }
     }
 
     /**
