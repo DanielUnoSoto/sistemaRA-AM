@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaTipoUsuario extends Migration
+class CrearTablaRoles extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CrearTablaTipoUsuario extends Migration
      */
     public function up()
     {
-        Schema::create('tipoUsuario', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('tipoUsuario');
-            // $table->timestamps();
+            $table->string('descrip_rol', 20);
+
+
+            $table->timestamps();
         });
     }
 
@@ -27,6 +29,6 @@ class CrearTablaTipoUsuario extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipoUsuario');
+        Schema::dropIfExists('roles');
     }
 }

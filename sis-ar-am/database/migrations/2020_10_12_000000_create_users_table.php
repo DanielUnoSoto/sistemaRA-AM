@@ -19,9 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('apellido');
             $table->string('codsis')->unique();
             $table->string('ci');
-            $table->integer('tipoUsuario')->unsigned();
-
-            $table->foreign("tipoUsuario")->references("id")->on("tipousuario");
+      
             // ->onDelete("cascade")
             // ->onUpdate("cascade");
 
