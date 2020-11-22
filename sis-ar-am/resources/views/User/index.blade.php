@@ -3,7 +3,7 @@
 <main class="main">
             <!-- Breadcrumb -->
             <ol class="breadcrumb">
-                <li class="breadcrumb-item active"><a href="/">Sistema de control de asistencia</a></li>
+                <li class="breadcrumb-item active"><a href="/">Sistema control de asistencia</a></li>
             </ol>
             <div class="container-fluid">
                 <!-- Ejemplo de tabla Listado -->
@@ -17,7 +17,7 @@
                         </button>
                     </div>
                     <div class="card-body">
-                        {{-- <div class="form-group row">
+                        <div class="form-group row">
                             <div class="col-md-6">
                             {!!Form::open(array('url'=>'user','method'=>'GET','autocomplete'=>'off','role'=>'search'))!!} 
                                   <div class="input-group"> 
@@ -27,7 +27,7 @@
                                 </div>
                              {{Form::close()}} 
                             </div>
-                        </div>  --}}
+                        </div> 
                         <table class="table table-bordered table-striped table-sm">
                             <thead>
                                 <tr class="bg-primary">
@@ -55,7 +55,7 @@
                                     <td>{{$user->apellido}}</td>
                                     <td>{{$user->codsis}}</td>
                                     <td>{{$user->ci}}</td>
-                                    <td>{{$user->tipoUsuario}}</td>
+                                    <td>{{$user->rol}}</td>
                                     {{-- <td>{{$user->telefono}}</td> --}}
                                     <td>{{$user->email}}</td>
                                     {{-- <td>{{$user->usuario}}</td> --}}
