@@ -104,6 +104,6 @@ class UnidadAcademicaController extends Controller
     {
         // DB::table('unidadacademica')->where('id',$id)->delete();
         UnidadAcademica::findOrFail($id)->delete();
-        return Redirect::to('unidadacademica',);
+        return Redirect::to('unidadacademica');
     }
 }

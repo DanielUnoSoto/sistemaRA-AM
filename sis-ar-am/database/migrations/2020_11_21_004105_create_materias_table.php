@@ -18,12 +18,12 @@ class CreateMateriasTable extends Migration
             $table->string('nombre');
             $table->integer('grupo');
             $table->integer('unidad')->unsigned();
-            $table->foreign("unidad")->references("id")->on("unidadacademica");
+            $table->foreign("unidad")->references("id")->on("unidadAcademica");
 
             $table->timestamps();
         });
 
-        DB::table('materias')->insert(array('id'=>'1','nombre'=>'Algebra I','grupo'=>'1','unidad'=>'1'));
+        //DB::table('materias')->insert(array('id'=>'1','nombre'=>'Algebra I','grupo'=>'1','unidad'=>'1'));
     }
 
     /**

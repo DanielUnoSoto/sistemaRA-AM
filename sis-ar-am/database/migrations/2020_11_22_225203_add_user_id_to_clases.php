@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddRolIdAUsers extends Migration
+class AddUserIdToClases extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddRolIdAUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->integer('rol_id')->unsigned();
-            $table->foreign("rol_id")->references("id")->on("roles");
+        Schema::table('clases', function (Blueprint $table) {
+            $table->integer('user_id')->unsigned();
+            $table->foreign("user_id")->references("id")->on("users");
         });
     }
 
@@ -26,9 +26,9 @@ class AddRolIdAUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign(['rol_id']);
-            $table->dropColumn('rol_id');
+        Schema::table('clases', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+            $table->dropColumn('user_id');
         });
     }
 }

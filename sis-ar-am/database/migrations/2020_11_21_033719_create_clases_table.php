@@ -19,8 +19,6 @@ class CreateClasesTable extends Migration
             $table->integer('materia')->unsigned();
             $table->foreign("materia")->references("id")->on("materias");
             
-            $table->integer('user')->unsigned();
-            $table->foreign("user")->references("id")->on("users");
             
             
             $table->timestamps();

@@ -29,8 +29,8 @@ Route::get('/casa',function(){
 });
 Route::resource('unidadacademica','UnidadAcademicaController');
 // Route::resource('rol','TipoUsuarioController');
-Route::resource('user','UserController');
-Route::resource('roles','RolController');
+Route::resource('/user','UserController');
+Route::resource('/roles','RolController');
 
 
 Route::resource('clases','ClaseController');
