@@ -27,7 +27,7 @@ class ClaseController extends Controller
             $clases=DB::table('clases')
            
             ->join('materias','clases.materia','=','materias.id')
-            ->join('users','clases.user','=','users.id')
+            ->join('users','clases.user_id','=','users.id')
             ->select('users.nombre','users.apellido',
         
             'materias.grupo','materias.unidad','materias.nombre as matery')

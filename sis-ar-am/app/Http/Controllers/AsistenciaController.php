@@ -35,7 +35,7 @@ class AsistenciaController extends Controller
             ->join('materias','horas.materia','=','materias.id')
             ->join('clases','materias.id','=','clases.materia')
             ->select('horas.id','hora','dia','materias.nombre')
-            ->where('clases.user','=',$userId)->get(); 
+            ->where('clases.user_id','=',$userId)->get(); 
             
 
             // return view('User.index',["usuarios"=>$usuarios,"horarios"=>$horarios,"buscarTexto"=>$sql]);

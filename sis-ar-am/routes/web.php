@@ -34,3 +34,5 @@ Route::resource('/roles','RolController');
 
 
 Route::resource('clases','ClaseController');
+
+Route::resource('asistencias', 'AsistenciaController');
