@@ -30,13 +30,20 @@
                 </div>
                 <div class="form-group">
                   <label class="form-control-label" for="tipoclase">Tipo de clase</label>
-                  <select class="form-control inputpicker" name="tipoclase" id="tipoclase" data-live-search="true">                              
+                  <select onchange= "yesnoCheck(this);" class="form-control inputpicker" name="tipoclase" id="tipoclase" data-live-search="true">                              
                     {{-- <option value="0" inputed="true" disabled="disable" >Seleccione</option> --}}
                     <option value="normal" inputed="true">Normal</option>
-                    <option value="reposicion" >Reposicion</option>
+                    <option id='reposicion' value="reposicion" >Reposicion</option>
                   </select>
                 </div>
 
+                <!-- fecha de reposicion -->
+                <div id="inputfecha" style="display: none;">
+                  <label class="form-control-label" for="fecha-reposicion">Fecha de reposicion</label>
+                  <input type="date" id="fecha-class-repo" name="link-class" class="form-control" placeholder="ingrese la fecha de reposicion.." required pattern="[0-9]{0,15}">
+                </div>
+                <!-- fin del codigo para la fecha de reposicion -->
+                
                 <div class="form-group">
                   <label class="form-control-label" for="nombre">Plataforma</label>
                 
@@ -87,5 +94,15 @@
       </div><!-- Fin del body card -->
     </div><!-- Fin card -->
     </div> <!-- Fin del div container fluid -->
-  </main>
+
+  <script type="text/javascript"> 
+    function yesnoCheck(that) {
+        if (that.value == "reposicion") {
+            document.getElementById("inputfecha").style.display = "block";
+        } else {
+          document.getElementById("inputfecha").style.display = "none";
+        }
+    }
+  </script>
+</main>
 @endsection
