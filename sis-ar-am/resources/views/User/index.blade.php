@@ -1,6 +1,6 @@
 @extends('principal')
 @section('contenido')
-<main class="main">
+
             <!-- Breadcrumb -->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item active"><a href="/">Sistema control de asistencia</a></li>
@@ -28,7 +28,7 @@
                              {{Form::close()}} 
                             </div>
                         </div> 
-                        <table class="table table-bordered table-striped table-sm">
+                        <table class="table table-striped table-sm">
                             <thead>
                                 <tr class="bg-primary">
                                    
@@ -36,7 +36,7 @@
                                     <th>Apellido</th>
                                     <th>Codigo SIS</th>
                                     <th>CI</th>
-                                    <th>Tipo Usuario</th>
+                                    {{-- <th>Tipo Usuario</th> --}}
                                     <th>Email</th>
                                     {{-- <th>Usuario</th> --}}
                                     <th>Rol</th>
@@ -55,7 +55,7 @@
                                     <td>{{$user->apellido}}</td>
                                     <td>{{$user->codsis}}</td>
                                     <td>{{$user->ci}}</td>
-                                    <td>{{$user->rol}}</td>
+                                    {{-- <td>{{$user->rol}}</td> --}}
                                     {{-- <td>{{$user->telefono}}</td> --}}
                                     <td>{{$user->email}}</td>
                                     {{-- <td>{{$user->usuario}}</td> --}}
@@ -86,7 +86,7 @@
                                         {{-- <button type="button" class="btn btn-info btn-md" data-id_usuario="{{$user->id}}" data-nombre="{{$user->nombre}}" data-tipo_documento="{{$user->tipo_documento}}" data-num_documento="{{$user->num_documento}}" data-direccion="{{$user->direccion}}" data-telefono="{{$user->telefono}}" data-email="{{$user->email}}" data-id_rol="{{$user->idrol}}"  data-usuario="{{$user->usuario}}"  data-imagen1="{{$user->imagen}}"  data-toggle="modal" data-target="#abrirmodalEditar">
                                           <i class="fa fa-edit fa-2x"></i> Editar
                                         </button> &nbsp; --}}
-                                        <button type="button"> Editar</button>
+                                        <button type="button" class="btn btn-outline-success btn-circle"><i class="fa fa-pencil" ></i></button>
                                     </td>
 
                                     
@@ -116,7 +116,7 @@
                             </tbody>
                         </table>
                             
-                            {{$usuarios->render()}}
+                            {{$usuarios->render("pagination::bootstrap-4")}}
 
                     </div>
                 </div>
@@ -220,10 +220,5 @@
                 <!-- /.modal-dialog -->
              </div>
             <!-- Fin del modal Eliminar --> --}}
-           
-
-           
-            
-        </main>
 
 @endsection
