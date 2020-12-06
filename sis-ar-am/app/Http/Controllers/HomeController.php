@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('casa');
+        $roles=DB::table('roles')
+        ->select('id','rol')->get(); 
+        
+        return view('principal',['roles'=>$roles]);
+        // return $roles;
     }
 }
