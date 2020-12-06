@@ -22,7 +22,7 @@
         </div>
 
         <div class="form-group row">
-            <label class="col-md-3 form-control-label" for="ci">Número documento</label>
+            <label class="col-md-3 form-control-label" for="ci">CI</label>
             <div class="col-md-9">
                 <input type="text" id="ci" name="ci" class="form-control" placeholder="Ingrese el número documento ci" pattern="[0-9]{0,15}">
             </div>
@@ -51,11 +51,11 @@
             
                 <select  class="form-control"  name="rol" id="rol">
                                                 
-                <option value="0" disabled>Seleccione</option>
+                <option value="0" selected="true" disabled="disabled">Seleccione</option>
                 
                     @foreach($roles as $rol)
                     
-                <option value="{{$rol->id}}">{{$rol->rol}}  {{$rol->id}}</option>
+                <option value="{{$rol->id}}">{{$rol->rol}}</option>
                             
                     @endforeach
 
