@@ -37,7 +37,7 @@
             border-color: inherit;
         }
         .table th, .table td {
-            padding: 0.75rem;
+            padding: 0.75rem 0.35rem;
             vertical-align: top;
             border-top: 1px solid #c2cfd6;
         }
@@ -58,7 +58,7 @@
         th {
             font-weight: bold;
             text-align: -internal-center;
-            text-align: left;
+            /* text-align: left; */
         }
         tbody {
             display: table-row-group;
@@ -99,22 +99,26 @@
         <table class="table table-bordered table-striped table-sm">
             <thead>
                 <tr> 
-                    <th>Fecha Registro</th>
-                    <th>Fecha Clase</th>
-                    <th>Hora</th>
-                    <th>Dia</th>
-                    <th>Grupo</th>
-                    <th>idM</th>
-                    <th>Materia</th>
-                    <th>Clase</th>
-                    <th>Feha Repocision</th>
-                    <th>Contenido</th>
-                    <th>Platafoma</th>
-                    <th>Observaciones</th> 
-                    <th>Link clases</th>
+                    <th width="50">Fecha Registro</th>
+                    <th width="50">Fecha Clase</th>
+                    <th width="20" >Hora</th>
+                    <th width="10">Dia</th>
+                    <th width="20">Grupo</th>
+                    <th width="10">id</th>
+                    <th width="20">Materia</th>
+                    <th WIDTH="30" >Clase</th>
+                    
+                    @if($contador!=0)
+                    <th WIDTH="50" >Feha Reposicion</th>
+                    @endif
+
+                    <th WIDTH="300" >Contenido</th>
+                    <th WIDTH="40" >Platafoma</th>
+                    <th width="60">Observaciones</th> 
+                    <th WIDTH="10" >Link clases</th>
                     {{-- <th>Carrera</th>
                     <th>Facultad</th> --}}
-                    <th>Herramientas</th>
+                    <th WIDTH="50" >Herramientas</th>
                     {{-- <th>Stock</th> --}}
                     
                 </tr>
@@ -130,11 +134,15 @@
                     <td>{{$asistencia->idmateria}}</td>
                     <td>{{$asistencia->nombre}}</td>
                     <td>{{$asistencia->tipoclase}}</td>
-                    <td>{{$asistencia->fecharepo}}</td>
+                    @if($contador!=0)
+                        <td>{{$asistencia->fecharepo}}</td>
+                    @endif
+                           
+                   
                     <td>{{$asistencia->contenido}}</td>
                     <td>{{$asistencia->plataforma}}</td>
                     <td>{{$asistencia->observacion}}</td>
-                    <td><a href="{{$asistencia->link}}" target="blank">link</a></td>
+                    <td><a href="{{$asistencia->link}}" target="blank">{!! !empty($asistencia->link) ? 'link' : '' !!}</a></td>
                     {{-- <td class="align-middle">{{$asistencia->unidad}}</td>
                     <td class="align-middle">{{$asistencia->facultad}}</td> --}}
                     <td>{!!$asistencia->herramientas!!}</td>
