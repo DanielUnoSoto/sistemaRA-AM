@@ -30,7 +30,11 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-        DB::table('users')->insert(array('id'=>'1','nombre'=>'David','apellido'=>'Escalera','codsis'=>'202020201','ci'=>'12345678','rol'=>'1'));
+        DB::table('users')->insert(array('id'=>'1','nombre'=>'Admin','apellido'=>'Bellido','codsis'=>'202020201','ci'=>'12345678','rol'=>'1','email'=>'admin@gmail.com','password'=>bcrypt('12345')));
+        DB::table('users')->insert(array('id'=>'2','nombre'=>'Jhimy','apellido'=>'Villaroel Novillo','codsis'=>'2020203','ci'=>'12345678','rol'=>'2','email'=>'jhimy@gmail.com','password'=>bcrypt('12345')));
+        DB::table('users')->insert(array('id'=>'3','nombre'=>'David','apellido'=>'Escalera Fernandez','codsis'=>'20202021','ci'=>'12345678','rol'=>'3','email'=>'david@gmail.com','password'=>bcrypt('12345')));
+        DB::table('users')->insert(array('id'=>'4','nombre'=>'Erika Patricia','apellido'=>'Rodriguez Bilbao','codsis'=>'20202001','ci'=>'12345678','rol'=>'3','email'=>'erika@gmail.com','password'=>bcrypt('12345')));
+
 
     }
 

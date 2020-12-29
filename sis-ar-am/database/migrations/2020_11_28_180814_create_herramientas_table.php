@@ -18,6 +18,12 @@ class CreateHerramientasTable extends Migration
             $table->String('nombre');
             $table->timestamps();
         });
+
+        DB::table('herramientas')->insert(array('id'=>'1','nombre'=>'Google Meet'));
+        DB::table('herramientas')->insert(array('id'=>'2','nombre'=>'Zoom'));
+        DB::table('herramientas')->insert(array('id'=>'3','nombre'=>'Google Doc'));
+        DB::table('herramientas')->insert(array('id'=>'4','nombre'=>'Microsoft Diapositivas'));
+        DB::table('herramientas')->insert(array('id'=>'5','nombre'=>'Pizarra Google'));
     }
 
     /**
