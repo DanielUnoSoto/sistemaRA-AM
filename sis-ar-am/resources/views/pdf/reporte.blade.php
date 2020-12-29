@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Reporte de asistencias</title>
+    <title>Reporte Asistencias</title>
     <style>
         body {
             margin: 0;
@@ -86,8 +86,8 @@
         <h3>Lista de Registros de asistencias <span class="derecha">{{date('d-M-Y')}}</span></h3>
         <hr>
         <p>UNIVERSIDAD MAYOR DE SAN SIMON <span class="izquierda"></span></p>
-        <p>{{$asistencias->first()->facultad}}</p>
-        <p>{{$asistencias->first()->unidad}}</p>
+        <p>Facultad: {{$asistencias->first()->facultad}}</p>
+        <p>Carrera: {{$asistencias->first()->unidad}}</p>
 
         @if($fechainicio&&$fechafin)
             <p>Fechas: <span class="izquierda"></span> {{$fechainicio}} al {{$fechafin}}</p>
@@ -129,7 +129,7 @@
                     {{-- <td>{{$asistencia->IDmateria}}</td> --}}
                     <td>{{$asistencia->materia}}</td>
                     <td>{{$asistencia->totalRegistro}}</td>
-                    <td>{{$asistencia->cargaHoraria}}</td>
+                    <td>{{$asistencia->cargaHoraria}} hrs.</td>
                     {{-- <td>{{$asistencia->dia}}</td>
                     <td>{{$asistencia->grupo}}</td>
                     <td>{{$asistencia->idmateria}}</td>
