@@ -1,34 +1,33 @@
-<div class="row mx-5">
-    @foreach($horarios as  $horario)
-    <div class="col-6">
-      <div class="row">    
-          <label class="col-sm">Facultad : </label>               
-          <p class="col-sm-10">{{$horario->facultad}}</p>
-      </div>
-      <div class="row">                       
-          <label class="col-sm">Carrera : </label>                
-          <p class="col-sm-10">{{$horario->unidad}}</p>
-       </div>
-    </div>
-
-    <div class="col-6">
-      <div class="row">    
-          <label class="col-sm">Materia : </label>               
-          <p class="col-sm-10">{{$horario->nombre}}</p>
-      </div>
-      <div class="row">                       
-          <label class="col-sm">Grupo : </label>                
-          <p class="col-sm-10">{{$horario->grupo}}</p>
-      
-      </div>
-      <div class="row">                       
-          <label class="col-sm">Hora - Dia : </label>                
-          <p class="col-sm-10">{{$horario->hora}} - {{$horario->dia}}</p>
-      
-      </div>
+<div class="container-fluid">
+    <div class="row ">
+        <div class="col-md-6">
+          <div class="row">    
+              <label class="col-auto">Facultad: </label>               
+              <p class="col-auto">{{$horarios->first()->facultad}}</p>
+          </div>
+          <div class="row">                       
+              <label class="col-auto">Carrera: </label>                
+              <p class="col-auto">{{$horarios->first()->unidad}}</p>
+           </div>
+        </div>
     
-    </div>
-   
-    @endforeach
-   </div>
-   <hr>
+        <div class="col-md-6">
+          <div class="row">    
+              <label class="col-auto">Materia: </label>               
+              <p class="col-auto">{{$horarios->first()->nombre}}</p>
+          </div>
+          <div class="row">                       
+              <label class="col-auto">Grupo: </label>                
+              <p class="col-auto">{{$horarios->first()->grupo}}</p>
+          
+          </div>
+          <div class="row">                       
+              <label class="col-auto">Hora-Dia: </label>                
+              <p class="col-auto">{{$horarios->first()->hora}} - {{$horarios->first()->dia}}</p>
+          
+          </div>
+        
+        </div>
+       </div>
+</div>
+<hr class="mb-4">

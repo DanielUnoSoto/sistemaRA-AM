@@ -7,91 +7,14 @@
             </ol>
             <div class="container-fluid">
                 <!-- Ejemplo de tabla Listado -->
-                <div class="card">
-                    <div class="card-header">
-
-                       <h2>Listados de Asistencias</h2><br/>
-                       
-                       {{-- <a href="{{route('asistencias.create')}}"> --}}
-                    
-
-                        <button class="btn btn-primary btn-lg" type="button" data-toggle="modal" data-target="#abrirmodal">
-                            <i class="fa fa-plus fa-1x"></i>&nbsp;&nbsp;Registrar Asistencia
-                        </button>
-
-                        {{-- </a> --}}
-                       {{-- <a href="{{route('asistencias')}}">
-                    
-
-                        <button class="btn btn-dark btn-lg" type="button">
-                            <i class="fa fa-plus fa-2x"></i>&nbsp;&nbsp;Editar Asistencia
-                        </button>
-
-                        </a> --}}
-                       
-                    </div>
-                    <div class="card-body">
-
-                        {{-- <div class="form-group row">
-                            <div class="col-md-6">
-                            {!! Form::open(array('url'=>'asistencias','method'=>'GET','autocomplete'=>'off','role'=>'search')) !!} 
-                                <div class="input-group">
-                                   
-                                    <input type="text" name="buscarTexto" class="form-control" placeholder="Buscar texto" value="">
-                                    <button type="submit"  class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
-                                </div>
-                            {{Form::close()}}
-                            </div>
-                        </div> --}}
-                        <table class="table table-bordered table-striped table-sm">
-                            <thead>
-                                <tr class="bg-primary">
-                                    
-                                    <th>Fecha</th>
-                                    <th>Hora</th>
-                                    <th>Grupo</th>
-                                    <th>Cod Materia</th>
-                                    <th>Materia</th>
-                                    <th>Contenido</th>
-                                    <th>Platafoma</th>
-                                    <th>Observaciones</th> 
-                                    <th>Link clases</th>
-                                    <th>Carrera</th>
-                                    <th>Facultad</th>
-                                    
-                                    
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                              {{-- @foreach($asistencias as $asistencia)
-                               
-                                <tr>
-                                  
-
-                                    <td>{{$asistencia->}}</td>
-                                    <td>{{$asistencia->}}</td>
-                                    <td>{{$asistencia->}}</td>
-                                    <td>{{$asistencia->}}</td>
-                                    <td>{{$asistencia->}}</td>
-                                    <td>${{$asistencia->}}</td>
-                                    <td>{{$asistencia->}}</td>
-                                    <td>
-                                      
-
-                                       
-                                    </td>
-                                </tr>
-
-                                @endforeach --}}
-                               
-                            </tbody>
-                        </table>
-
-                        {{-- {{$asistencia->render()}} --}}
-                        
-                    </div>
-                </div>
+                @if(Auth::user()->rol == 2)
+                    @include('asistencia.asistenciaAdmin')
+                @elseif(Auth::user()->rol == 3||Auth::user()->rol == 4)
+                    @include('asistencia.asistencias')
+                @else
+                    @include('asistencia.asistenciasAux')
+                @endif
+              
                 <!-- Fin ejemplo de tabla Listado -->
             </div>
                        
@@ -124,11 +47,13 @@
                                         {{-- <option value="0" >Fisica</option>
                                         <option value="0" >Quimica</option> --}}
                                         
-                                            @foreach($materias as $materia)
+                                            @if(Auth::user()->rol != 2 && Auth::user()->rol != 5)
+                                                     @foreach($materias as $materia)
                                             
-                                        <option value="{{$materia->id}}">{{$materia->id}} {{$materia->nombre}} {{$materia->dia}} {{$materia->hora}}</option>
-                                                    
-                                            @endforeach
+                                                <option value="{{$materia->id}}">{{$materia->materiaid}} {{$materia->nombre}} {{$materia->dia}} {{$materia->hora}}</option>
+                                                
+                                                @endforeach
+                                            @endif
                         
                                         </select>
                                     
@@ -149,12 +74,13 @@
                         
                         
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times fa-2x"></i> Canselar</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times fa-1x"></i> Canselar</button>
                                 <button type="submit" class="btn btn-success"><i class="fa fa-save fa-1x"></i> Selecinar</button>
                                 
                             </div>
 
                             </form>
+                       
                         </div>
                         
                     </div>
