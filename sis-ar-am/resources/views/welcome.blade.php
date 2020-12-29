@@ -80,8 +80,8 @@
                     @else
                         {{-- <a href="{{ url('/login') }}">Login</a> --}}
                         <a href="{{ url('/login') }}">Plantel Academido</a>
-                        <a href="{{ url('/login') }}">Administardor</a>
                         <a href="{{ url('/login') }}">Autoridad Academica</a>
+                        <a href="{{ url('/login') }}">Administrador</a>
                         {{-- <a href="{{ url('/register') }}">Register</a> --}}
                     @endif
                 </div>

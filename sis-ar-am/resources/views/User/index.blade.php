@@ -86,7 +86,7 @@
                                         {{-- <button type="button" class="btn btn-info btn-md" data-id_usuario="{{$user->id}}" data-nombre="{{$user->nombre}}" data-tipo_documento="{{$user->tipo_documento}}" data-num_documento="{{$user->num_documento}}" data-direccion="{{$user->direccion}}" data-telefono="{{$user->telefono}}" data-email="{{$user->email}}" data-id_rol="{{$user->idrol}}"  data-usuario="{{$user->usuario}}"  data-imagen1="{{$user->imagen}}"  data-toggle="modal" data-target="#abrirmodalEditar">
                                           <i class="fa fa-edit fa-2x"></i> Editar
                                         </button> &nbsp; --}}
-                                        <button type="button" class="btn btn-outline-success btn-circle"><i class="fa fa-pencil" ></i></button>
+                                        <button type="button" class="btn btn-outline-success btn-circle"><i class="fa fa-pen" ></i></button>
                                     </td>
 
                                     

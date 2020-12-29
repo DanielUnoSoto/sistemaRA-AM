@@ -32,13 +32,36 @@
                     </div>
                     <div class="card-body">
 
+                        {{-- <a href="{{url('generarPdf',)}}" target="_blank">
+                            <button type="button" class="btn btn-success btn-lg">
+                                <i class="fa fa-file fa-1x"></i>&nbsp;&nbsp;Reporte PDF                              
+                            </button>
+
+                        </a> --}}
+
                         <div class="form-group row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                             {!! Form::open(array('url'=>"personalacademico/$iduser",'method'=>'GET','autocomplete'=>'off','role'=>'search')) !!} 
                                 <div class="input-group">
                                    
-                                <input type="text" name="buscarTexto" class="form-control" placeholder="Buscar texto" value="">
+                                <input type="text" name="buscarTexto" class="form-control" placeholder="Buscar Materia" value="">
                                     <button type="submit"  class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
+                                </div>
+                            {{Form::close()}}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-4">
+                            {!! Form::open(array('url'=>"pdfGenerate",'method'=>'POST','target' => '_blank','role'=>'search')) !!} 
+                            {{ csrf_field() }}
+                                <div class="input-group">
+                                    {{-- <p name="gato" value="esto es un ejemplo" ></p>  --}}
+                                <input hidden name="iduser" class="form-control" value="{{$iduser}}">
+                                <input hidden name="fechainicio" class="form-control" value="{{$fechainicio}}">
+                                <input hidden name="fechafin" class="form-control" value="{{$fechafin}}">
+                                <input hidden name="buscarTexto" class="form-control" value="{{$buscarTexto}}">
+
+                                    <button type="submit"  class="btn btn-primary"><i class="fa fa-document"></i> Generar Reporte auditoria</button>
                                 </div>
                             {{Form::close()}}
                             </div>
@@ -49,7 +72,7 @@
                             <div class="col-auto">
                                 <div class="form-group mx-sm-3 mb-2" >
                                     <label class="form-control-label" for="fechainicio">Fecha inicio</label>
-                                <input type="date" id="fechainicio" name="fechainicio" class="form-control" value="{{$fechainicio}}" >
+                                    <input type="date" id="fechainicio" name="fechainicio" class="form-control" value="{{$fechainicio}}" >
                                   </div>
                             </div>
                             <div class="col-auto">
@@ -72,22 +95,22 @@
                                 <thead>
                                     <tr class="bg-primary ">
                                         
-                                        <th>Fecha Registro</th>
-                                        <th>Fecha Clase</th>
+                                        <th width="90">Fecha Registro</th>
+                                        <th width="90">Fecha Clase</th>
                                         <th>Hora</th>
                                         <th>Dia</th>
                                         <th>Grupo</th>
                                         <th>idM</th>
                                         <th>Materia</th>
-                                        <th>Clase</th>
-                                        <th>Feha de Repocision</th>
-                                        <th>Contenido</th>
+                                        <th width="50">Clase</th>
+                                        <th width="50">Feha de Repocision</th>
+                                        <th width="350">Contenido</th>
                                         <th>Platafoma</th>
                                         <th>Observaciones</th> 
-                                        <th>Link clases</th>
+                                        <th width="50">Link clases</th>
                                         {{-- <th>Carrera</th>
                                         <th>Facultad</th> --}}
-                                        <th scope="2">Herramientas</th>
+                                        <th width="70">Herramientas</th>
                                         {{-- "google doc<br>google meet" --}}
                                         
                                     </tr>
@@ -109,10 +132,10 @@
                                         <td class="align-middle">{{$asistencia->contenido}}</td>
                                         <td class="align-middle">{{$asistencia->plataforma}}</td>
                                         <td class="align-middle">{{$asistencia->observacion}}</td>
-                                        <td class="align-middle"><a href="{{$asistencia->link}}" target="blank">Video</a></td>
+                                    <td class="align-middle"><a href="{{$asistencia->link}}" title="{{$asistencia->link}}" target="blank"> {!! !empty($asistencia->link) ? '<i class="fas fa-video"></i>' : '' !!}</a></td>
                                         {{-- <td class="align-middle">{{$asistencia->unidad}}</td>
                                         <td class="align-middle">{{$asistencia->facultad}}</td> --}}
-                                        <td class="align-middle w-10">{!!$asistencia->herramientas!!}</td>
+                                        <td class="align-middle ">{!!$asistencia->herramientas!!}</td>
                                         
                                     </tr>
 

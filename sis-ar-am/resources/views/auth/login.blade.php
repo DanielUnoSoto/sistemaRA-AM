@@ -3,16 +3,20 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+        <div class="col-md-7 col-md-offset-3">
+            <div class="panel panel-default formulario">
+                {{-- <div class="panel-heading text-center"><h4>Login</h4></div> --}}
 
                 <div class="panel-body">
+                    <div class="title-dark text-center">
+                        <h4>INGRESAR AL SISTEMA</h4>
+                    </div>
+                    <hr>
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Codigo SIS</label>
+                            <label for="email" class="col-md-4 control-label"><i class="fa fa-user"></i> Correo</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
@@ -26,7 +30,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Contraseña</label>
+                            <label for="password" class="col-md-4 control-label"><i class="fa fa-lock"></i> Contraseña</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
@@ -50,8 +54,8 @@
                         </div> --}}
 
                         <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary btn-block">
                                     Login
                                 </button>
 
@@ -61,6 +65,7 @@
                             </div>
                         </div>
                     </form>
+                     <hr>
                 </div>
             </div>
         </div>

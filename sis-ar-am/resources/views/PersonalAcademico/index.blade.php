@@ -1,6 +1,6 @@
 @extends('principal')
 @section('contenido')
-
+<main class="main">
             <!-- Breadcrumb -->
             <ol class="breadcrumb">
                 <li class="breadcrumb-item active"><a href="/">Sistema control de asistencia</a></li>
@@ -22,7 +22,7 @@
                             {!!Form::open(array('url'=>'personalacademico','method'=>'GET','autocomplete'=>'off','role'=>'search'))!!} 
                                   <div class="input-group"> 
                                    
-                                    <input type="text" name="buscarTexto" class="form-control" placeholder="Buscar texto" value="">
+                                    <input type="text" name="buscarTexto" class="form-control" placeholder="Buscar docente" value="">
                                     <button type="submit"  class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
                                 </div>
                              {{Form::close()}} 
@@ -228,5 +228,5 @@
                 <!-- /.modal-dialog -->
              </div>
             <!-- Fin del modal Eliminar --> --}}
-
+        </main>
 @endsection

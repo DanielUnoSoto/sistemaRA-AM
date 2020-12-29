@@ -12,7 +12,7 @@
                 
                     @foreach($users as $user)
                     
-                        <option value="{{$user->id}}">{{$user->nombre}}</option>
+                        <option value="{{$user->id}}">{{$user->nombre}} {{$user->apellido}}</option>
                             
                     @endforeach
 
@@ -32,7 +32,7 @@
                 
                     @foreach($materias as $materia)
                     
-                     <option value="{{$materia->id}}">{{$materia->nombre}}</option>
+                <option value="{{$materia->id}}">{{$materia->id}} |  Grupo: {{$materia->grupo}} | {{$materia->nombre}}</option>
                             
                     @endforeach
 
