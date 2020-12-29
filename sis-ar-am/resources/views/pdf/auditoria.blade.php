@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Reporte de Productos</title>
+    <title>Reporte de Auditoria</title>
     <style>
         body {
             margin: 0;
@@ -86,8 +86,8 @@
         <h3>Reporte Auditoria <span class="derecha">{{date('d-M-Y')}}</span></h3>
         <hr>
         <p>UNIVERSIDAD MAYOR DE SAN SIMON <span class="izquierda"></span></p>
-        <p>{{$asistencias->first()->facultad}}</p>
-        <p>{{$asistencias->first()->unidad}}</p>
+        <p>Facultad: {{$asistencias->first()->facultad}}</p>
+        <p>Carrera: {{$asistencias->first()->unidad}}</p>
         <p>Nombre:  <span class="izquierda"></span>{{$personal->first()->nombre}} {{$personal->first()->apellido}}</p>
         @if($fechainicio&&$fechafin)
         <p>Fechas: <span class="izquierda"></span> {{$fechainicio}} al {{$fechafin}}</p>
@@ -107,6 +107,8 @@
                     <th width="10">id</th>
                     <th width="20">Materia</th>
                     <th WIDTH="30" >Clase</th>
+
+
                     
                     @if($contador!=0)
                     <th WIDTH="50" >Feha Reposicion</th>
