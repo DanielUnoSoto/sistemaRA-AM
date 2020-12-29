@@ -20,13 +20,12 @@ class PersonalAcademicoController extends Controller
         if($request){
             $sql=trim($request->get('buscarTexto'));
             $personal=DB::table('users')
+            ->join('roles','users.rol','=','roles.id')
+            ->select('users.id','users.nombre','users.apellido','users.codsis','users.ci','users.email','roles.rol')
             ->where('users.nombre','like','%'.$sql.'%')
             ->where('users.rol','=',3)
             ->orwhere('users.rol','=',4)
-            ->orwhere('users.rol','=',5)
-            
-            
-            
+            ->orwhere('users.rol','=',5)                      
             ->paginate(3);
 
 
@@ -124,7 +123,7 @@ class PersonalAcademicoController extends Controller
                 $asistencias=DB::table('asistencias')
             ->join('horas','asistencias.hora','=','horas.id')
             ->join('materias','horas.materia','=','materias.id')
-            ->join('clases','materias.id','=','clases.materia')
+            // ->join('clases','materias.id','=','clases.materia')
             ->join('unidadacademica','materias.unidad','=','unidadacademica.id')
             ->select('asistencias.id','asistencias.contenido','asistencias.plataforma',
             'asistencias.herramientas','asistencias.fecharepo','asistencias.fecha','asistencias.link',
@@ -140,7 +139,7 @@ class PersonalAcademicoController extends Controller
             // })
             // ->where('materias.nombre','LIKE','%'.$sql.'%')
             // ->orwhere('asistencias.tipoclase','LIKE','%'.$sql.'%')
-            ->where('clases.user','=',$id)
+            ->where('asistencias.usuario','=',$id)
             // ->where(function($query){
             //          global $id,$sql;
             //             $query->where('materias.nombre','LIKE','%'.$sql.'%')
@@ -158,14 +157,14 @@ class PersonalAcademicoController extends Controller
             $asistencias=DB::table('asistencias')
             ->join('horas','asistencias.hora','=','horas.id')
             ->join('materias','horas.materia','=','materias.id')
-            ->join('clases','materias.id','=','clases.materia')
+            // ->join('clases','materias.id','=','clases.materia')
             ->join('unidadacademica','materias.unidad','=','unidadacademica.id')
             ->select('asistencias.id','asistencias.contenido','asistencias.plataforma',
             'asistencias.herramientas','asistencias.fecharepo','asistencias.fecha','asistencias.link',
             'asistencias.tipoclase','asistencias.created_at','asistencias.hora','asistencias.observacion',
             'horas.dia','horas.hora','materias.nombre','materias.grupo','unidadacademica.facultad',
             'unidadacademica.nombre as unidad','materias.id as idmateria')
-            ->where('clases.user','=',$id)
+            ->where('asistencias.usuario','=',$id)
             ->whereBetween('asistencias.fecha', [$fechaini, $fechafin])
             // ->orwhere('ma terias.nombre','LIKE','%'.$sql.'%')
             

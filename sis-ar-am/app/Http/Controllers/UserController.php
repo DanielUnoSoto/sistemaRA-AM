@@ -83,6 +83,7 @@ class UserController extends Controller
             //  //fin registrar imagen
              $user->save();
              return Redirect::to("user"); 
+            // return $user;
      }
  
      public function update(Request $request)

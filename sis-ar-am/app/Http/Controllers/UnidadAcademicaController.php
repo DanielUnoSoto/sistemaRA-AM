@@ -19,12 +19,20 @@ class UnidadAcademicaController extends Controller
         // $unidad = DB::table('unidadacademica')->paginate(5);
         if($request){
             $sql=trim($request->get('buscarTexto'));
-            $unidades=DB::table('unidadacademica')->where('nombre','like','%'.$sql.'%')
+            $unidades=DB::table('unidadacademica')->where('nombre','LIKE','%'.$sql.'%')
             ->orderBy('id','desc')
-            ->paginate(15);
-            return view('UnidadAcademica.index',['unidades'=>$unidades,'buscarTexto'=>$sql]);
-            // return $unidades;
+            ->paginate(3);
+
+
+            //Consulta de jefes de unidad
+            $jefes=DB::table('users')
+            ->select('users.id','users.nombre')
+            ->where('rol','=','2')->get();
+
+            return view('UnidadAcademica.index',['unidades'=>$unidades,'buscarTexto'=>$sql,'jefes'=>$jefes]);
+            // return $jefes;
         }
+        // return view('UnidadAcademica.index',['unidades'=>$unidades,'buscarTexto'=>$sql]);
     }
 
     /**

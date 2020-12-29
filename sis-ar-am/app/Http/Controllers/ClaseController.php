@@ -24,13 +24,14 @@ class ClaseController extends Controller
         if($request){
  
             $sql=trim($request->get('buscarTexto'));
+
             $clases=DB::table('clases')
-           
             ->join('materias','clases.materia','=','materias.id')
             ->join('users','clases.user','=','users.id')
+            ->join('unidadacademica','materias.unidad','=','unidadacademica.id')
             ->select('users.nombre','users.apellido',
         
-            'materias.grupo','materias.unidad','materias.nombre as matery')
+            'materias.grupo','materias.unidad','materias.nombre as matery','unidadacademica.nombre as unidad','unidadacademica.facultad')
             ->where('users.nombre','LIKE','%'.$sql.'%')
             ->orwhere('users.id','LIKE','%'.$sql.'%')
             ->orderBy('clases.id','desc')
@@ -38,7 +39,7 @@ class ClaseController extends Controller
 
              /*listar los user en ventana modal*/
              $users=DB::table('users')
-             ->select('id','nombre')
+             ->select('id','nombre','apellido')
              ->where('users.rol',3)
              ->orwhere('users.rol',4)
              ->orwhere('users.rol',5)
