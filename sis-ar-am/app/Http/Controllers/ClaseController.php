@@ -33,7 +33,7 @@ class ClaseController extends Controller
         
             'materias.grupo','materias.unidad','materias.nombre as matery','unidadacademica.nombre as unidad','unidadacademica.facultad')
             ->where('users.nombre','LIKE','%'.$sql.'%')
-            ->orwhere('users.id','LIKE','%'.$sql.'%')
+            ->orwhere('users.codsis','LIKE','%'.$sql.'%')
             ->orderBy('clases.id','desc')
             ->paginate(15);
 
@@ -42,7 +42,7 @@ class ClaseController extends Controller
              ->select('id','nombre','apellido')
              ->where('users.rol',3)
              ->orwhere('users.rol',4)
-             ->orwhere('users.rol',5)
+            //  ->orwhere('users.rol',5)
              ->get(); 
 
              /*listar los materias en ventana modal*/
