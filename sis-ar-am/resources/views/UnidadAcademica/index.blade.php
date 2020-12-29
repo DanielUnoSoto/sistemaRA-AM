@@ -1,6 +1,5 @@
 @extends('principal')
 @section('contenido')
-
 <main class="main">
     <!-- Breadcrumb -->
     <ol class="breadcrumb">
@@ -30,15 +29,15 @@
                             {{Form::close()}}
                     </div>
                 </div>
-                <table class="table table-bordered table-striped table-sm">
+                <table class="table table-striped table-sm">
                     <thead>
                         <tr class="bg-primary">
                            
-                            <th>Unidad</th>
+                            <th >Unidad</th>
                             <th>Facultad</th>
                             {{-- <th>Estado</th> --}}
-                            <th>Editar</th>
-                            <th>Eliminar</th>
+                            <th class="text-center">Editar</th>
+                            <th  class="text-center m-auto">Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,8 +56,11 @@
                                
                             </td> --}}
 
-                            <td>
-                            <form action="{{route('unidadacademica.update',$unidad->id)}}" method="post">
+                            <td class="text-center">
+                                {{-- <button href="#updateUser{{ $unidad->id }}" class="btn btn-primary btn-circle"><i class="fa fa-edit"></i></button> --}}
+                                <button data-target="#abrirmodaleditar{{ $unidad->id }}" data-toggle="modal" class="btn btn-outline-success btn-circle"><i class="fa fa-pen"></i>
+                                </button>
+                            {{-- <form action="{{route('unidadacademica.update',$unidad->id)}}" method="post">
                                 <button type="button" class="btn btn-primary btn-sm" 
                                 data-toggle="modal"
                                 data-id_unidad="{{$unidad->id}}" 
@@ -67,25 +69,69 @@
                                 data-target="#abrirmodaleditar">
                                   <i class="fa fa-edit fa-0.5x"></i> Editar
                                 </button>
-                            </form>
+                            </form> --}}
                             </td>
 
-                            <td>
+                            <td class="text-center">
                                      <form action="{{route('unidadacademica.destroy',$unidad->id)}}" method="post">
                                         {{csrf_field()}}
                                         {{method_field('delete')}}
-                                        <button type="submit" class="btn btn-danger btn-sm">
-                                        <i class="fa fa-remove fa-0.5x"></i> Eliminar
-                                        </button>
+                                        <button type="submit" class="btn btn-outline-danger btn-circle"><i class="fa fa-trash"></i></button>
                                     </form>
                             </td>
                         </tr>
+
+                        {{-- <div class="modal fade" id="update1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+                            <div class="modal-content">
+                                <div class="row">
+                                    <div class="input-field col s12 m6">
+                                        <i class="material-icons prefix">account_circle</i>
+                                        <input value="{{ $unidad->nombre }}" title="Solo puede ingresar letras en este campo." id="Primer nombre" type="text" class="validate" required>
+                                        <label for="Primer nombre">Primer nombre:</label>
+                                    </div>
+                
+                                    <div class="input-field col s10 m6 push-s1">
+                                        <input value="{{ $unidad->id }}" title="Solo puede ingresar letras en este campo." id="Segundo nombre" type="text" class="validate" required>
+                                        <label for="Segundo nombre">Segundo nombre:</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
+                                <!--Inicio del modal actualizar-->
+        <div class="modal fade" id="abrirmodaleditar{{ $unidad->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-primary modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Actualizar Unidad Academica</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                   
+                    <div class="modal-body">
+                        
+                        <form action="{{route('unidadacademica.update',$unidad->id)}}" method="post" class="form-horizontal">
+                            {{method_field('PUT')}}   
+                            {{csrf_field()}}
+                            <input type="hidden" id="id_unidad" nombre="id_unidad" value="">
+                                @include('UnidadAcademica.editform')
+    
+                        </form>
+                    </div>
+                   
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!--Fin del modal-->
+                
                         @endforeach
                     </tbody>
                 </table>
                 
                 
-                      {{$unidades->render()}}
+                      {{$unidades->render("pagination::bootstrap-4")}}
                    
                 
             </div>
@@ -132,13 +178,16 @@
                    
                     <div class="modal-body">
                         
-                    <form action="{{route('unidadacademica.update',$unidad->id)}}" method="post" class="form-horizontal">
+                      @if(!$unidades)
+                      <form action="{{route('unidadacademica.update',$unidad->id)}}" method="post" class="form-horizontal">
                         {{method_field('PUT')}}   
                         {{csrf_field()}}
                         <input type="hidden" id="id_unidad" nombre="id_unidad" value="">
                             @include('UnidadAcademica.editform')
     
                         </form>
+                      @endif
+
                     </div>
                    
                 </div>
@@ -147,8 +196,5 @@
             <!-- /.modal-dialog -->
         </div>
         <!--Fin del modal-->
-   
-    
-</main>
-
+    </main>
 @endsection
