@@ -13,7 +13,7 @@ class CrearTablaUnidadAcademica extends Migration
      */
     public function up()
     {
-        Schema::create('unidadAcademica', function (Blueprint $table) {
+        Schema::create('unidadacademica', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre');
             $table->string('facultad')->nullable();
@@ -24,10 +24,10 @@ class CrearTablaUnidadAcademica extends Migration
             $table->timestamps();
         });
 
-        DB::table('unidadAcademica')->insert(array('id'=>'1','nombre'=>'Igenieria de Sistemas','facultad'=>'Ciencias y Tecnologia'));
-        DB::table('unidadAcademica')->insert(array('id'=>'2','nombre'=>'Igenieria Industrial','facultad'=>'Ciencias y Tecnologia'));
-        DB::table('unidadAcademica')->insert(array('id'=>'3','nombre'=>'Igenieria Informatica','facultad'=>'Ciencias y Tecnologia'));
-        DB::table('unidadAcademica')->insert(array('id'=>'4','nombre'=>'Igenieria Quimica','facultad'=>'Ciencias y Tecnologia'));
+        DB::table('unidadacademica')->insert(array('id'=>'1','nombre'=>'Igenieria de Sistemas','facultad'=>'Ciencias y Tecnologia'));
+        DB::table('unidadacademica')->insert(array('id'=>'2','nombre'=>'Igenieria Industrial','facultad'=>'Ciencias y Tecnologia'));
+        DB::table('unidadacademica')->insert(array('id'=>'3','nombre'=>'Igenieria Informatica','facultad'=>'Ciencias y Tecnologia'));
+        DB::table('unidadacademica')->insert(array('id'=>'4','nombre'=>'Igenieria Quimica','facultad'=>'Ciencias y Tecnologia'));
     }
 
     /**
