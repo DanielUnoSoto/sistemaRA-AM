@@ -36,7 +36,7 @@
                             <th >Unidad</th>
                             <th>Facultad</th>
                             {{-- <th>Estado</th> --}}
-                            <th class="text-center">Editar</th>
+                            {{-- <th class="text-center">Editar</th> --}}
                             <th  class="text-center m-auto">Eliminar</th>
                         </tr>
                     </thead>
@@ -56,10 +56,10 @@
                                
                             </td> --}}
 
-                            <td class="text-center">
+                            {{-- <td class="text-center"> --}}
                                 {{-- <button href="#updateUser{{ $unidad->id }}" class="btn btn-primary btn-circle"><i class="fa fa-edit"></i></button> --}}
-                                <button data-target="#abrirmodaleditar{{ $unidad->id }}" data-toggle="modal" class="btn btn-outline-success btn-circle"><i class="fa fa-pen"></i>
-                                </button>
+                                {{-- <button data-target="#abrirmodaleditar{{ $unidad->id }}" data-toggle="modal" class="btn btn-outline-success btn-circle"><i class="fa fa-pen"></i>
+                                </button> --}}
                             {{-- <form action="{{route('unidadacademica.update',$unidad->id)}}" method="post">
                                 <button type="button" class="btn btn-primary btn-sm" 
                                 data-toggle="modal"
@@ -70,7 +70,7 @@
                                   <i class="fa fa-edit fa-0.5x"></i> Editar
                                 </button>
                             </form> --}}
-                            </td>
+                            {{-- </td> --}}
 
                             <td class="text-center">
                                      <form action="{{route('unidadacademica.destroy',$unidad->id)}}" method="post">
