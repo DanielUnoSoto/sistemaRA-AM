@@ -107,7 +107,33 @@
                     <div class="form-group mt-3">
                       <div class="form">
                               <a href="{{url('asistencias')}}"><button type="button"  class="btn btn-danger "><i class="fa fa-times fa-1x"></i> Canselar</button></a>
-                              <button type="submit" class="btn btn-primary"><i class="fa fa-save fa-1x"></i> Registrar Asistencia</button> 
+                              <button type="submit" class="btn btn-primary"><i class="fa fa-save fa-1x"></i> Registrar Asistencia <input type="button" style=" background-color: Transparent;
+                                background-repeat:no-repeat;
+                                border: none;
+                                cursor:pointer;
+                                overflow: hidden;
+                                outline:none;"  data-toggle="modal" data-target="#abrirmodal"/></button> 
+                              
+                      </div>
+                    </div>
+
+                    {{-- modal alert --}}
+                    <div class="modal" tabindex="-1" role="dialog" id="abrirmodal" name="abrirmodal">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">Mensaje</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <p id="mensaje">Ya no se puede registra este clase</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">SALIR</button>
+                          </div>
+                        </div>
                       </div>
                     </div>
              
