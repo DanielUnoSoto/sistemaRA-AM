@@ -28,9 +28,11 @@ class ClaseController extends Controller
             $clases=DB::table('clases')
             ->join('materias','clases.materia','=','materias.id')
             ->join('users','clases.user','=','users.id')
+            ->join('roles','users.rol','=','roles.id')
             ->join('unidadacademica','materias.unidad','=','unidadacademica.id')
             ->select('users.nombre','users.apellido',
-        
+            'roles.rol',
+
             'materias.grupo','materias.unidad','materias.nombre as matery','unidadacademica.nombre as unidad','unidadacademica.facultad')
             ->where('users.nombre','LIKE','%'.$sql.'%')
             ->orwhere('users.codsis','LIKE','%'.$sql.'%')
@@ -39,7 +41,8 @@ class ClaseController extends Controller
 
              /*listar los user en ventana modal*/
              $users=DB::table('users')
-             ->select('id','nombre','apellido')
+             ->join('roles','users.rol','=','roles.id')
+             ->select('users.id','users.nombre','users.apellido','roles.rol')
              ->where('users.rol',3)
              ->orwhere('users.rol',4)
             //  ->orwhere('users.rol',5)
@@ -51,7 +54,7 @@ class ClaseController extends Controller
              
             return view('Clase.index',["clases"=>$clases,"users"=>$users,"materias"=>$materias,"buscarTexto"=>$sql]);
         
-            // return $clases;
+            // return $users;
         }      
 
 
