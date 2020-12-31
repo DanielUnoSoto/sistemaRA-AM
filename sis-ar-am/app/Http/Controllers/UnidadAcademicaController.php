@@ -21,7 +21,7 @@ class UnidadAcademicaController extends Controller
             $sql=trim($request->get('buscarTexto'));
             $unidades=DB::table('unidadacademica')->where('nombre','LIKE','%'.$sql.'%')
             ->orderBy('id','desc')
-            ->paginate(3);
+            ->paginate(5);
 
 
             //Consulta de jefes de unidad
@@ -112,6 +112,6 @@ class UnidadAcademicaController extends Controller
     {
         // DB::table('unidadacademica')->where('id',$id)->delete();
         UnidadAcademica::findOrFail($id)->delete();
-        return Redirect::to('unidadacademica',);
+        return Redirect::to('unidadacademica');
     }
 }
