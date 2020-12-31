@@ -11,47 +11,37 @@
         <div class="card">
             <div class="card-header">
 
-               <h2>Listado De Herramientas</h2><br/>
+               <h2>Horarios De {{$materia->nombre}} </h2><br/>
               
                 <button class="btn btn-primary btn-lg rounded" type="button" data-toggle="modal" data-target="#abrirmodal">
-                    <i class="fa fa-plus fa-1x"></i>&nbsp;&nbsp;Agregar Nueva Herramienta
+                    <i class="fa fa-plus fa-1x"></i>&nbsp;&nbsp;Agregar Nueva Horario
                 </button>
             </div>
             <div class="card-body">
-                <div class="form-group row">
-                    <div class="col-md-6">
-                        {!!Form::open(array('url'=>'herramientas','method'=>'GET','autocomplete'=>'off','roles'=>'search'))!!}
-                        <div class="input-group">
-                            {{-- <select class="form-control col-md-3">
-                                <option value="nombre">Unidad</option>
-                                <option value="descripcion">Facultad</option>
-                            </select> --}}
-                            <input type="text" name="buscarTexto" class="form-control" placeholder="Buscar texto" value="{{$buscarTexto}}">
-                            <button type="submit"  class="btn btn-primary rounded"><i class="fa fa-search"></i> Buscar</button>
-                        </div>
-                        {{Form::close()}}
-                        
-                    </div>
-                </div>
+                
                 <table class="table table-bordered table-striped table-sm">
                     <thead>
                         <tr class="bg-primary">
                            
                             {{-- <th>Unidad</th>
                             <th>Facultad</th> --}}
-                            <th>ID</th>
-                            <th>Herramientas</th>
+                            <th>Grupo</th>
+                            <th>Dia</th>
+                            <th>Hora</th>
+                            <th>Tipo Horario</th>
                             {{-- <th>Editar</th> --}}
                             <th>Eliminar</th>
                         </tr>
                     </thead>
                     <tbody>
                        
-                        @foreach($herramientas as $key => $herramienta)
+                        @foreach($horarios as $key => $hora)
                         
                         <tr>
-                            <td>{{$herramienta->id}}</td>
-                            <td>{{$herramienta->nombre}}</td>
+                            <td>{{$hora->materia}}</td>
+                            <td>{{$hora->dia}}</td>
+                            <td>{{$hora->hora}}</td>
+                            <td>{{$hora->tipo}}</td>
                             {{-- <td>{{$unidad->facultad}}</td> --}}
                             {{-- <td>
                                 <button type="button" class="btn btn-success btn-md">
@@ -75,9 +65,10 @@
                             </td> --}}
 
                             <td>
-                                     <form action="{{route('herramientas.destroy',$herramienta->id)}}" method="post">
+                                     <form action="{{route('horarios.destroy',$hora->id)}}" method="post">
                                         {{csrf_field()}}
                                         {{method_field('delete')}}
+                                        <input hidden type="text" id="idmateria" name="idmateria" value="{{$materia->id}}">
                                         <button type="submit" class="btn btn-danger btn-circle"><i class="fa fa-trash"></i></button>
                                     </form>
                                     {{-- {{ Form::open(array('url' => ['herramientas.destroy',$herramientas->id],'method'=>'post',)) }}
@@ -92,7 +83,7 @@
                 </table>
                 
                 
-                      {{$herramientas->render("pagination::bootstrap-4")}}
+                      {{$horarios->render("pagination::bootstrap-4")}}
                    
                 
             </div>
@@ -112,9 +103,9 @@
                
                 <div class="modal-body">
                     
-                <form action="{{route('herramientas.store')}}" method="post" class="form-horizontal">
+                <form action="{{route('horarios.store')}}" method="post" class="form-horizontal">
                        {{csrf_field()}}
-                        @include('Herramienta.form')
+                        @include('horarios.form')
 
                     </form>
                 </div>
