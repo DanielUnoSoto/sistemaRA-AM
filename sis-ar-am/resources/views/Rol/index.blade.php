@@ -26,14 +26,14 @@
                                 <option value="nombre">Unidad</option>
                                 <option value="descripcion">Facultad</option>
                             </select> --}}
-                            <input type="text" name="buscarTexto" class="form-control" placeholder="Buscar texto" value="{{$buscarTexto}}">
+                            <input type="text" name="buscarTexto" class="form-control" placeholder="Buscar rol" value="{{$buscarTexto}}">
                             <button type="submit"  class="btn btn-primary rounded"><i class="fa fa-search"></i> Buscar</button>
                         </div>
                         {{Form::close()}}
                         
                     </div>
                 </div>
-                <table class="table table-bordered table-striped table-sm">
+                <table class="table table-bordered table-striped">
                     <thead>
                         <tr class="bg-primary">
                            

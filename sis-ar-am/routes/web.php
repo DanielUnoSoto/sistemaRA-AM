@@ -34,6 +34,8 @@ Route::resource('roles','RolController');
 
 Route::resource('/herramientas','HerramientaController');
 
+Route::resource('materias','MateriaController');
+Route::resource('horarios','HorarioController');
 
 Route::resource('clases','ClaseController');
 Route::resource('/asistencias','AsistenciaController');
@@ -47,3 +49,5 @@ Route::get('/coreui',function(){
 // Route::get('/generarPdf', 'PersonalAcademicoController@generarPdf')->name('unidades_pdf');
 Route::post('/pdfGenerate', 'PersonalAcademicoController@generarPdf')->name('pdf');
 Route::post('/generarReporte', 'AsistenciaController@generarReportePdf');
+
+Route::get('/auxiliar', 'AsistenciaController@auxiliar');

@@ -26,7 +26,10 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{url('herramientas')}}"><i class="fa fa-list"></i> Herramientas</a>
             </li>
-                
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('materias')}}"><i class="fa fa-book"></i> Materias</a>
+            </li>
+            
             
         </ul>
     </nav>

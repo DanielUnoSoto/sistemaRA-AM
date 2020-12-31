@@ -32,9 +32,9 @@
                             <thead>
                                 <tr class="bg-primary">
                                    
+                                    <th>Rol</th>
                                     <th>Nombre</th>
                                     <th>Apellido</th>
-                                    {{-- <th>Codigo SIS</th> --}}
                                     {{-- <th>CI</th> --}}
                                     {{-- <th>Tipo Usuario</th> --}}
                                     {{-- <th>Email</th> --}}
@@ -53,9 +53,9 @@
                                
                                 <tr>
                                     
+                                    <td>{{$clase->rol}}</td>
                                     <td>{{$clase->nombre}}</td>
                                     <td>{{$clase->apellido}}</td>
-                                    {{-- <td>{{$clase->codsis}}</td> --}}
                                     {{-- <td>{{$user->ci}}</td> --}}
                                     {{-- <td>{{$user->rol}}</td> --}}
                                     {{-- <td>{{$user->telefono}}</td> --}}
