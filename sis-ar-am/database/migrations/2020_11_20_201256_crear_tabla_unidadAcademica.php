@@ -24,10 +24,10 @@ class CrearTablaUnidadAcademica extends Migration
             $table->timestamps();
         });
 
-        DB::table('unidadacademica')->insert(array('id'=>'1','nombre'=>'Igenieria de Sistemas','facultad'=>'Ciencias y Tecnologia'));
-        DB::table('unidadacademica')->insert(array('id'=>'2','nombre'=>'Igenieria Industrial','facultad'=>'Ciencias y Tecnologia'));
-        DB::table('unidadacademica')->insert(array('id'=>'3','nombre'=>'Igenieria Informatica','facultad'=>'Ciencias y Tecnologia'));
-        DB::table('unidadacademica')->insert(array('id'=>'4','nombre'=>'Igenieria Quimica','facultad'=>'Ciencias y Tecnologia'));
+        DB::table('unidadacademica')->insert(array('id'=>'1','nombre'=>'Ingenieria de Sistemas','facultad'=>'Ciencias y Tecnologia'));
+        DB::table('unidadacademica')->insert(array('id'=>'2','nombre'=>'Ingenieria Industrial','facultad'=>'Ciencias y Tecnologia'));
+        DB::table('unidadacademica')->insert(array('id'=>'3','nombre'=>'Ingenieria Informatica','facultad'=>'Ciencias y Tecnologia'));
+        DB::table('unidadacademica')->insert(array('id'=>'4','nombre'=>'Ingenieria Quimica','facultad'=>'Ciencias y Tecnologia'));
     }
 
     /**

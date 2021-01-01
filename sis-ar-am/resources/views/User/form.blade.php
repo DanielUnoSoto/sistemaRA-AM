@@ -17,7 +17,7 @@
         <div class="form-group row">
                     <label class="col-md-3 form-control-label" for="codsis">Codigo SIS</label>
                     <div class="col-md-9">
-                        <input type="text" id="codsis" name="codsis" class="form-control" placeholder="Ingrese el codigo SIS" pattern="^[a-zA-Z0-9_áéíóúñ°\s]{0,200}$">
+                        <input type="text" id="codsis" name="codsis" class="form-control" placeholder="Ingrese el codigo SIS" pattern="^[0-9]{0,10}$">
                     </div>
         </div>
 
