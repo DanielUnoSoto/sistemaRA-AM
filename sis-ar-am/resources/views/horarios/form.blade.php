@@ -27,8 +27,8 @@
     <div class="col-md-9">
     <select  type="text" name="tipo" id="tipo" class="form-control" placeholder="Ingrese la unidad">
         {{-- <option selected="true" disabled="disabled">Seleccione</option> --}}
-        <option >Docencial</option>
-        <option >Auxiliar</option>      
+        <option >docent</option>
+        <option >aux</option>      
     </select>
     </div>
 </div>
