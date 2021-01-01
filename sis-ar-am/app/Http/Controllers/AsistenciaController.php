@@ -74,7 +74,7 @@ class AsistenciaController extends Controller
                     // ->join('clases','materias.id','=','clases.materia')
                     ->join('unidadacademica','materias.unidad','=','unidadacademica.id')
                     ->select('asistencias.id','asistencias.contenido','asistencias.plataforma',
-                    'asistencias.herramientas','asistencias.fecharepo','asistencias.link','horas.dia',
+                    'asistencias.herramientas','asistencias.fecha','asistencias.fecharepo','asistencias.link','horas.dia',
                     'asistencias.tipoclase','asistencias.created_at','horas.hora','asistencias.observacion','asistencias.archivos',
                     'materias.nombre','materias.grupo','unidadacademica.facultad',
                     'unidadacademica.nombre as unidad','materias.id as idmateria')
