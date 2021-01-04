@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use Carbon\Carbon;
 class AsistenciaController extends Controller
 {
     /**
@@ -215,7 +216,7 @@ class AsistenciaController extends Controller
         $this->validate($request, [
             'herramientas' => 'required',
             'contenido'=>'required',
-            // 'body' => 'required',
+            'archivo' => 'max:8388600',
         ]);
 
         
@@ -268,10 +269,19 @@ class AsistenciaController extends Controller
             //     $fileNameToStore="noimagen.jpg";
             // }
             
-            
+            $inicio=Carbon::parse(Carbon::now())->startOfWeek()->toDateString(); 
+            $fin=Carbon::parse(Carbon::now())->endOfWeek()->toDateString(); 
+            if(($request->fecha>=$inicio)&&($request->fecha<=$fin)){
+                 $asistencia->save();
+                return Redirect::to("asistencias");
+            }else{
+               $mensaje="La fecha de la clase selecionada No se puede registrar porque no es de esta semana";
+                return redirect()->route('asistencias.create',array('materia'=>$request->horaId,'mensaje'=>$mensaje));
+            }
 
-            $asistencia->save();
-            return Redirect::to("asistencias"); 
+
+            // $asistencia->save();
+            // return Redirect::to("asistencias"); 
     
         // return $asistencia;
     }

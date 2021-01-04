@@ -120,15 +120,25 @@
                       </div>
                     
                     </div>
-                    @if ($errors->any())
+                    @if(Request::get('mensaje'))
                     <div class="alert alert-danger p-0">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
+                      <ul>
+                              <li>{{ Request::get('mensaje') }}</li>
+                      </ul>
+                  </div>
                     @endif
+                    
+                          @if ($errors->any())
+                            <div class="alert alert-danger p-0">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            @else
+                            
+                          @endif
 
                     {{-- modal alert --}}
                     <div class="modal" tabindex="-1" role="dialog" id="abrirmodal" name="abrirmodal">
