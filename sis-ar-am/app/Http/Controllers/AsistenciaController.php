@@ -45,7 +45,7 @@ class AsistenciaController extends Controller
                     ->join('unidadacademica','materias.unidad','=','unidadacademica.id')
                     ->select('asistencias.id','asistencias.contenido','asistencias.plataforma',
                     'asistencias.herramientas','asistencias.fecharepo','asistencias.link','horas.dia',
-                    'asistencias.tipoclase','asistencias.created_at','horas.hora','asistencias.observacion','asistencias.archivos',
+                    'asistencias.tipoclase','asistencias.created_at','horas.hora','asistencias.observacion','asistencias.archivos','asistencias.fecha',
                     'materias.nombre','materias.grupo','unidadacademica.facultad',
                     'unidadacademica.nombre as unidad','materias.id as idmateria')
                     ->where('asistencias.usuario','=',$userId)
@@ -212,10 +212,14 @@ class AsistenciaController extends Controller
      */
     public function store(Request $request)
     {
-
+        $this->validate($request, [
+            'herramientas' => 'required',
+            'contenido'=>'required',
+            // 'body' => 'required',
+        ]);
 
         
-        $he=($request->get('chek'));
+        $he=($request->get('herramientas'));
         $cadena=array_keys($he) ;
         $cadenaTexto = implode(", ", $cadena);
         // $cadenatxt=json_encode($cadena);

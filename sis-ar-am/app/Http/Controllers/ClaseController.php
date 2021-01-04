@@ -31,7 +31,7 @@ class ClaseController extends Controller
             ->join('roles','users.rol','=','roles.id')
             ->join('unidadacademica','materias.unidad','=','unidadacademica.id')
             ->select('users.nombre','users.apellido',
-            'roles.rol',
+            'roles.rol','clases.id',
 
             'materias.grupo','materias.unidad','materias.nombre as matery','unidadacademica.nombre as unidad','unidadacademica.facultad')
             ->where('users.nombre','LIKE','%'.$sql.'%')
@@ -137,6 +137,8 @@ class ClaseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Clase::findOrFail($id)->delete();
+        return Redirect::to('clases');
+
     }
 }
