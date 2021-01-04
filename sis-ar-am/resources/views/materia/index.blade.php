@@ -38,7 +38,7 @@
                             <th>Grupo</th>
                             <th>Unidad</th>
                             <th>Horarios</th>
-                            <th>Editar</th>
+                            {{-- <th>Editar</th> --}}
                             {{-- <th>Estado</th> --}}
                             {{-- <th class="text-center">Editar</th> --}}
                             <th  class="text-center m-auto">Eliminar</th>
@@ -68,7 +68,7 @@
                                 {{-- <button href="#updateUser{{ $unidad->id }}" class="btn btn-primary btn-circle"><i class="fa fa-edit"></i></button> --}}
                                 {{-- <button data-target="#abrirmodaleditar{{ $unidad->id }}" data-toggle="modal" class="btn btn-outline-success btn-circle"><i class="fa fa-pen"></i>
                                 </button> --}}
-                            <td>
+                            {{-- <td>
                             <form action="{{route('materias.update',$materia->id)}}" method="post">
                                 <button type="button" class="btn btn-outline-primary btn-circle" data-toggle="modal" 
                                 data-id_unidad="{{$materia->id}}" 
@@ -78,7 +78,7 @@
                                   <i class="fa fa-pen"></i>
                                 </button>
                             </form>
-                            </td>
+                            </td> --}}
 
                             <td class="text-center">
                                      <form action="{{route('materias.destroy',$materia->id)}}" method="post">
