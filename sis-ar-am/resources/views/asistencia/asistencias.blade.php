@@ -44,23 +44,23 @@
                             </div>
                         </div> --}}
                         <div class="table-responsive">
-                            <table class="table table-striped table-sm">
+                            <table class="table table-striped">
                                 <thead>
                                     <tr class="bg-primary ">
                                         
-                                        <th>Fecha Registro</th>
+                                        <th>Fecha&nbsp;Registro</th>
                                         <th>Hora</th>
                                         <th>Dia</th>
                                         <th>Grupo</th>
                                         <th>idM</th>
                                         <th>Materia</th>
                                         <th>Clase</th>
-                                        <th>Fecha Clase</th>
-                                        <th>Feha de Repocision</th>
-                                        <th>Contenido</th>
+                                        <th>Fecha&nbsp;Clase</th>
+                                        <th>Feha&nbsp;Repocision</th>
+                                        <th  WIDTH="200">Contenido</th>
                                         <th>Platafoma</th>
                                         <th>Observaciones</th> 
-                                        <th WIDTH="10">Link clases</th>
+                                        <th WIDTH="10">Link</th>
                                         <th>Carrera</th>
                                         <th>Facultad</th>
                                         <th WIDTH="55">Herramientas</th>
@@ -83,7 +83,7 @@
                                         <td class="align-middle">{{$asistencia->tipoclase}}</td>
                                         <td class="align-middle">{{$asistencia->fecha}}</td>
                                         <td class="align-middle">{{$asistencia->fecharepo}}</td>
-                                        <td class="align-middle">{{$asistencia->contenido}}</td>
+                                        <td class="align-middle ">{{$asistencia->contenido}}</td>
                                         <td class="align-middle">{{$asistencia->plataforma}}</td>
                                         <td class="align-middle">{{$asistencia->observacion}}</td>
                                         <td class="align-middle"><a href="{{$asistencia->link}}" title="{{$asistencia->link}}" target="blank"> {!! !empty($asistencia->link) ? '<i class="fas fa-video"></i>' : '' !!}</a></td>

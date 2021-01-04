@@ -31,6 +31,7 @@
                   <div class="form-group">
                       <label for="contenido">Contenido de la clase:</label>
                           <textarea placeholder="Ingrese el contenido avanzado en la clase" class="form-control" name="contenido" id="contenido"  rows="3"></textarea>
+                          
                       
                   </div>
 
@@ -79,7 +80,7 @@
                        
                       @foreach($herramientas as $herramienta)
                         <div class="form-check form-check" required>
-                          <input name="chek[{{$herramienta->herramienta}}]" class="form-check-input" type="checkbox" id="{{$herramienta->id}}">
+                          <input name="herramientas[{{$herramienta->herramienta}}]" class="form-check-input" type="checkbox" id="{{$herramienta->id}}">
                           <label class="form-check-label" for="{{$herramienta->id}}">{{$herramienta->herramienta}}</label>
                         </div>
                       @endforeach
@@ -105,6 +106,8 @@
                     </div>
                     <hr>
                     <div class="form-group mt-3">
+
+                     
                       <div class="form">
                               <a href="{{url('asistencias')}}"><button type="button"  class="btn btn-danger "><i class="fa fa-times fa-1x"></i> Canselar</button></a>
                               <button type="submit" class="btn btn-primary"><i class="fa fa-save fa-1x"></i> Registrar Asistencia <input type="button" style=" background-color: Transparent;
@@ -115,7 +118,17 @@
                                 outline:none;"  data-toggle="modal" data-target="#abrirmodal"/></button> 
                               
                       </div>
+                    
                     </div>
+                    @if ($errors->any())
+                    <div class="alert alert-danger p-0">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
 
                     {{-- modal alert --}}
                     <div class="modal" tabindex="-1" role="dialog" id="abrirmodal" name="abrirmodal">

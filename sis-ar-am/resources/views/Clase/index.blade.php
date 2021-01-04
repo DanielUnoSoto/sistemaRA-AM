@@ -43,7 +43,7 @@
                                     <th>Grupo</th>
                                     <th>Carrera</th>
                                     <th>Facultad</th>
-                                    <th>Editar</th>
+                                    <th>Eliminar</th>
                                     {{-- <th>Cambiar Estado</th> --}}
                                 </tr>
                             </thead>
@@ -85,12 +85,13 @@
                                        
                                     </td> --}}
                             
-                                    <td>
-                                        {{-- <button type="button" class="btn btn-info btn-md" data-id_usuario="{{$user->id}}" data-nombre="{{$user->nombre}}" data-tipo_documento="{{$user->tipo_documento}}" data-num_documento="{{$user->num_documento}}" data-direccion="{{$user->direccion}}" data-telefono="{{$user->telefono}}" data-email="{{$user->email}}" data-id_rol="{{$user->idrol}}"  data-usuario="{{$user->usuario}}"  data-imagen1="{{$user->imagen}}"  data-toggle="modal" data-target="#abrirmodalEditar">
-                                          <i class="fa fa-edit fa-2x"></i> Editar
-                                        </button> &nbsp; --}}
-                                        <button type="button" class="btn btn-primary" > Editar</button>
-                                    </td>
+                                    <td class="text-center">
+                                        <form action="{{route('clases.destroy',$clase->id)}}" method="post">
+                                           {{csrf_field()}}
+                                           {{method_field('delete')}}
+                                           <button type="submit" class="btn btn-outline-danger btn-circle"><i class="fa fa-trash"></i></button>
+                                       </form>
+                                        </td>
 
                                     
                                     {{-- <td>

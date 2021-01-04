@@ -53,9 +53,12 @@ class UnidadAcademicaController extends Controller
      */
     public function store(Request $request)
     {
+       
+
         $unidad = new UnidadAcademica(); 
         $unidad->nombre=$request->nombre;
         $unidad->facultad=$request->facultad;
+        $unidad->jefe=$request->jefe;
         $unidad->save();
         return Redirect::to('unidadacademica');
     }

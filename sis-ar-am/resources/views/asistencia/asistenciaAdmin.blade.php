@@ -82,22 +82,22 @@
                         <th>Apellido</th>
                         <th>Rol</th>
                         <th>Cod SIS</th>
-                        <th width="99">Fecha Registro</th>
+                        <th width="99">Fecha&nbsp;Registro</th>
                         <th>Hora</th>
                         <th>Dia</th>
                         <th>Grupo</th>
                         <th>idM</th>
                         <th>Materia</th>
-                        <th width="99">Fecha clase</th>
+                        <th width="99">Fecha&nbsp;clase</th>
                         <th width="5">Clase</th>
                         @if($contador!=0)
                             
                         <th width="96">Feha de Repocision</th>
                         @endif
-                        <th width="250">Contenido</th>
+                        <th width="350">Contenido</th>
                         <th>Platafoma</th>
                         <th>Observaciones</th> 
-                        <th>Link clases</th>
+                        <th>Link</th>
                         <th>Carrera</th>
                         {{-- <th>Facultad</th> --}}
                         <th width="10">Herramientas</th>

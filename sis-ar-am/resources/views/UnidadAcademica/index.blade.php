@@ -154,6 +154,7 @@
                 <form action="{{route('unidadacademica.store')}}" method="post" class="form-horizontal">
                        {{csrf_field()}}
                         @include('UnidadAcademica.form')
+                        
 
                     </form>
                 </div>
