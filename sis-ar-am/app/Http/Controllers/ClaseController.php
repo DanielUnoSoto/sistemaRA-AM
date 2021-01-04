@@ -37,7 +37,7 @@ class ClaseController extends Controller
             ->where('users.nombre','LIKE','%'.$sql.'%')
             ->orwhere('users.codsis','LIKE','%'.$sql.'%')
             ->orderBy('clases.id','desc')
-            ->paginate(15);
+            ->paginate(10);
 
              /*listar los user en ventana modal*/
              $users=DB::table('users')

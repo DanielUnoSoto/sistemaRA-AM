@@ -139,7 +139,7 @@
                 </table>
                 
                 
-                      {{-- {{$materias->render("pagination::bootstrap-4")}} --}}
+                      {{$materias->render("pagination::bootstrap-4")}} 
                    
                 
             </div>

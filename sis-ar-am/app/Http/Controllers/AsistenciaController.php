@@ -282,8 +282,8 @@ class AsistenciaController extends Controller
             }
 
 
-            // $asistencia->save();
-            // return Redirect::to("asistencias"); 
+            //$asistencia->save();
+            //return Redirect::to("asistencias"); 
     
         // return $asistencia;
     }

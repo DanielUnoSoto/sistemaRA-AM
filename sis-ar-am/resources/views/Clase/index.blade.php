@@ -120,7 +120,7 @@
                             </tbody>
                         </table>
                             
-                            {{$clases->render()}}
+                        {{$clases->render("pagination::bootstrap-4")}} 
 
                     </div>
                 </div>
