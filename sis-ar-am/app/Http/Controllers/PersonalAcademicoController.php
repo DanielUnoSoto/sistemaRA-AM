@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use DB;
 $datos;
 class PersonalAcademicoController extends Controller
@@ -19,18 +20,35 @@ class PersonalAcademicoController extends Controller
 
         if($request){
             $sql=trim($request->get('buscarTexto'));
-            $personal=DB::table('users')
+            // $personal=DB::table('users')
+            // ->join('roles','users.rol','=','roles.id')
+            // ->select('users.id','users.nombre','users.apellido','users.codsis','users.ci','users.email','roles.rol')
+
+            // ->where('users.nombre','like','%'.$sql.'%')
+            // ->where('users.rol','=',3)
+            // ->orwhere('users.rol','=',4)
+            // ->orwhere('users.rol','=',5)                      
+            // ->paginate(3);
+
+            $jefe=Auth::user()->id;
+            // echo $jefe;
+            $unidad=DB::table('unidadacademica')
+            ->select('unidadacademica.id')
+            ->where('unidadacademica.jefe','=',$jefe)->first();
+            // echo $unidad->id;
+            
+            $personal=DB::table('materias')
+            ->join('clases','clases.materia','=','materias.id')
+            ->join('users','users.id','=','clases.user')
             ->join('roles','users.rol','=','roles.id')
             ->select('users.id','users.nombre','users.apellido','users.codsis','users.ci','users.email','roles.rol')
+            ->where('materias.unidad',$unidad->id)
             ->where('users.nombre','like','%'.$sql.'%')
-            ->where('users.rol','=',3)
-            ->orwhere('users.rol','=',4)
-            ->orwhere('users.rol','=',5)                      
-            ->paginate(3);
-
+            ->groupBy('users.id','users.nombre','users.apellido','users.codsis','users.ci','users.email','roles.rol')
+            ->paginate(5);
 
            return view('PersonalAcademico.index',['usuarios'=>$personal,'buscarTexto'=>$sql]);
-        // return $personal;
+            // return $personal;
         }
         
     }
