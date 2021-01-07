@@ -104,6 +104,7 @@
                     {{-- <th>ID Materia</th> --}}
                     <th>Materia</th>
                     <th>Total Asistencias</th>
+                    <th>Total Repociciones</th>
                     <th>Carga Horaria</th>
                     {{-- <th>Grupo</th>
                     <th>idM</th>
@@ -128,7 +129,9 @@
                     <td>{{$asistencia->apellido}}</td>
                     {{-- <td>{{$asistencia->IDmateria}}</td> --}}
                     <td>{{$asistencia->materia}}</td>
+
                     <td>{{$asistencia->totalRegistro}}</td>
+                    <td>{{$asistencia->totalrepo}}</td>
                     <td>{{$asistencia->cargaHoraria}} hrs.</td>
                     {{-- <td>{{$asistencia->dia}}</td>
                     <td>{{$asistencia->grupo}}</td>

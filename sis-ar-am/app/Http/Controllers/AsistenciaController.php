@@ -365,7 +365,7 @@ class AsistenciaController extends Controller
             ->select('users.nombre','users.apellido',
             'materias.id as IDmateria','materias.nombre as materia',
             
-            'unidadacademica.facultad','unidadacademica.nombre as unidad',DB::raw('count(asistencias.id) as totalRegistro'),DB::raw('count(asistencias.id)*2 as cargaHoraria')
+            'unidadacademica.facultad','unidadacademica.nombre as unidad',DB::raw('count(asistencias.id) as totalRegistro'),DB::raw('count(asistencias.id)*2 as cargaHoraria'),DB::raw('count(asistencias.fecharepo) as totalrepo')
             )
             ->where('unidadacademica.jefe','=',$userId)
             ->whereBetween('asistencias.fecha', [$fechaini, $fechafin])
@@ -382,7 +382,7 @@ class AsistenciaController extends Controller
             ->select('users.nombre','users.apellido',
             'materias.id as IDmateria','materias.nombre as materia',
             
-            'unidadacademica.facultad','unidadacademica.nombre as unidad',DB::raw('count(asistencias.usuario) as totalRegistro'),DB::raw('count(asistencias.usuario)*2 as cargaHoraria')
+            'unidadacademica.facultad','unidadacademica.nombre as unidad',DB::raw('count(asistencias.usuario) as totalRegistro'),DB::raw('count(asistencias.usuario)*2 as cargaHoraria'),DB::raw('count(asistencias.fecharepo) as totalrepo')
             )
             ->where('unidadacademica.jefe','=',$userId)
             // ->whereBetween('asistencias.fecha', [$fechaini, $fechafin])
@@ -394,7 +394,7 @@ class AsistenciaController extends Controller
         // ->where('horas.id',')->get();
         // return view('pdf.reporte',['asistencias'=>$reporte]);
         return \PDF::loadView('pdf.reporte',['asistencias'=>$reporte,'fechainicio'=>$fechaini,'fechafin'=>$fechafin])->setPaper('A4')->stream('control_asistencia.pdf');
-        // return $reporte;
+        //return $reporte;
     }
     public function auxiliar(Request $request){
           
