@@ -136,6 +136,13 @@ class PersonalAcademicoController extends Controller
             $asistencias;
 
             if(!$fechaini||!$fechafin){
+
+                $jefe=Auth::user()->id;
+                // echo $jefe;
+                $unidad=DB::table('unidadacademica')
+                ->select('unidadacademica.id')
+                ->where('unidadacademica.jefe','=',$jefe)->first();
+
                 global $asistencias;
                 // $sql=trim($request->get('buscarTexto'));
                 $asistencias=DB::table('asistencias')
@@ -157,7 +164,9 @@ class PersonalAcademicoController extends Controller
             // })
             // ->where('materias.nombre','LIKE','%'.$sql.'%')
             // ->orwhere('asistencias.tipoclase','LIKE','%'.$sql.'%')
+            ->where('materias.unidad','=',$unidad->id)
             ->where('asistencias.usuario','=',$id)
+
             // ->where(function($query){
             //          global $id,$sql;
             //             $query->where('materias.nombre','LIKE','%'.$sql.'%')
