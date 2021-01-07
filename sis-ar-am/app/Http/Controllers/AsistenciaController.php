@@ -189,6 +189,8 @@ class AsistenciaController extends Controller
     public function create(Request $request)
     {
         if($request){
+
+            $userId=Auth::user()->id;
         $materia=trim($request->get('materia'));
 
         // Query para obtener las horas 
@@ -196,7 +198,9 @@ class AsistenciaController extends Controller
             ->join('materias','horas.materia','=','materias.id')
             ->join('unidadacademica','materias.unidad','=','unidadacademica.id')
             ->select('horas.id','horas.hora','horas.dia','materias.nombre','materias.grupo','unidadacademica.nombre as unidad','unidadacademica.facultad')
-            ->where('horas.id','=',$materia)->get();
+            ->where('horas.id','=',$materia)
+            ->where('unidadacademica.jefe','=',$userId)
+            ->get();
 
             //Query para obtener las herramientas
             $herramientas=DB::table('herramientas')
