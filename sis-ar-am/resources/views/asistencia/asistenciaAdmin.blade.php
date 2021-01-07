@@ -75,7 +75,7 @@
             {{Form::close()}}
         </div>
         <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table table-striped table-sm">
                 <thead>
                     <tr class="bg-primary ">
                         <th>Nombre</th>

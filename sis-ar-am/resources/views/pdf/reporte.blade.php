@@ -101,24 +101,12 @@
                 <tr> 
                     <th>Nombre</th>
                     <th>Apellido</th>
-                    {{-- <th>ID Materia</th> --}}
+                    <th>Grupo</th>
                     <th>Materia</th>
                     <th>Total Asistencias</th>
+                    <th>Total Faltas</th>
                     <th>Total Repociciones</th>
                     <th>Carga Horaria</th>
-                    {{-- <th>Grupo</th>
-                    <th>idM</th>
-                    <th>Materia</th>
-                    <th>Clase</th>
-                    <th>Feha Repocision</th>
-                    <th>Contenido</th>
-                    <th>Platafoma</th>
-                    <th>Observaciones</th> 
-                    <th>Link clases</th> --}}
-                    {{-- <th>Carrera</th>
-                    <th>Facultad</th> --}}
-                    {{-- <th>Herramientas</th> --}}
-                    {{-- <th>Stock</th> --}}
                     
                 </tr>
             </thead>
@@ -127,10 +115,11 @@
                 <tr>
                     <td>{{$asistencia->nombre}}</td>
                     <td>{{$asistencia->apellido}}</td>
-                    {{-- <td>{{$asistencia->IDmateria}}</td> --}}
+                    <td>{{$asistencia->grupo}}</td>
                     <td>{{$asistencia->materia}}</td>
 
                     <td>{{$asistencia->totalRegistro}}</td>
+                    <td>0</td>
                     <td>{{$asistencia->totalrepo}}</td>
                     <td>{{$asistencia->cargaHoraria}} hrs.</td>
                     {{-- <td>{{$asistencia->dia}}</td>

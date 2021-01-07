@@ -367,14 +367,14 @@ class AsistenciaController extends Controller
             ->join('materias','materias.id','=','horas.materia')
             ->join('unidadacademica','materias.unidad','=','unidadacademica.id')
             ->select('users.nombre','users.apellido',
-            'materias.id as IDmateria','materias.nombre as materia',
+            'materias.grupo','materias.nombre as materia',
             
             'unidadacademica.facultad','unidadacademica.nombre as unidad',DB::raw('count(asistencias.id) as totalRegistro'),DB::raw('count(asistencias.id)*2 as cargaHoraria'),DB::raw('count(asistencias.fecharepo) as totalrepo')
             )
             ->where('unidadacademica.jefe','=',$userId)
             ->whereBetween('asistencias.fecha', [$fechaini, $fechafin])
 
-            ->groupBy('users.nombre','users.apellido','materias.id','materias.nombre',
+            ->groupBy('users.nombre','users.apellido','materias.grupo','materias.nombre',
             'unidadacademica.facultad','unidadacademica.nombre')->get();
            }else{
             $reporte=DB::table('asistencias')

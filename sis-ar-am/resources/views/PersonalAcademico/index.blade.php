@@ -22,7 +22,7 @@
                             {!!Form::open(array('url'=>'personalacademico','method'=>'GET','autocomplete'=>'off','role'=>'search'))!!} 
                                   <div class="input-group"> 
                                    
-                                    <input type="text" name="buscarTexto" class="form-control" placeholder="Buscar docente" value="">
+                                    <input type="text" name="buscarTexto" class="form-control" placeholder="Buscar por rol o nonbre del personal academico" value="{{$buscarTexto}}">
                                     <button type="submit"  class="btn btn-primary"><i class="fa fa-search"></i> Buscar</button>
                                 </div>
                              {{Form::close()}} 
