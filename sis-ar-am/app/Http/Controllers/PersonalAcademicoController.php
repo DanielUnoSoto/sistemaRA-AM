@@ -44,8 +44,9 @@ class PersonalAcademicoController extends Controller
             ->select('users.id','users.nombre','users.apellido','users.codsis','users.ci','users.email','roles.rol')
             ->where('materias.unidad',$unidad->id)
             ->where('users.nombre','like','%'.$sql.'%')
+            ->orWhere('roles.rol','like','%'.$sql.'%')
             ->groupBy('users.id','users.nombre','users.apellido','users.codsis','users.ci','users.email','roles.rol')
-            ->paginate(5);
+            ->paginate(15);
 
            return view('PersonalAcademico.index',['usuarios'=>$personal,'buscarTexto'=>$sql]);
             // return $personal;

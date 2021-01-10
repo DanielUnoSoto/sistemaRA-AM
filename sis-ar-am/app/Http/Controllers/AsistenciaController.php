@@ -381,14 +381,14 @@ class AsistenciaController extends Controller
             ->join('materias','materias.id','=','horas.materia')
             ->join('unidadacademica','materias.unidad','=','unidadacademica.id')
             ->select('users.nombre','users.apellido',
-            'materias.id as IDmateria','materias.nombre as materia',
+            'materias.grupo','materias.nombre as materia',
             
             'unidadacademica.facultad','unidadacademica.nombre as unidad',DB::raw('count(asistencias.id) as totalregistro'),DB::raw('count(asistencias.id)*2 as cargaHoraria'),DB::raw('count(asistencias.fecharepo) as totalrepo')
             )
             ->where('unidadacademica.jefe','=',$userId)
             ->whereBetween('asistencias.fecha', [$fechaini, $fechafin])
 
-            ->groupBy('users.nombre','users.apellido','materias.id','materias.nombre',
+            ->groupBy('users.nombre','users.apellido','materias.grupo','materias.nombre',
             'unidadacademica.facultad','unidadacademica.nombre')->get();
 
             return \PDF::loadView('pdf.reporte',['asistencias'=>$reporte,'fechainicio'=>$fechaini,'fechafin'=>$fechafin,'semanas'=>$datediff])->setPaper('A4')->stream('control_asistencia.pdf');
@@ -407,14 +407,14 @@ class AsistenciaController extends Controller
             // ->join('materias','clases.materia','=','materias.id')
             ->join('unidadacademica','materias.unidad','=','unidadacademica.id')
             ->select('users.nombre','users.apellido',
-            'materias.id as IDmateria','materias.nombre as materia',
+            'materias.id as IDmateria','materias.nombre as materia','materias.grupo',
             
             'unidadacademica.facultad','unidadacademica.nombre as unidad',DB::raw('count(asistencias.usuario) as totalregistro'),DB::raw('count(asistencias.usuario)*2 as cargaHoraria'),DB::raw('count(asistencias.fecharepo) as totalrepo')
             )
             ->where('unidadacademica.jefe','=',$userId)
             // ->whereBetween('asistencias.fecha', [$fechaini, $fechafin])
             ->groupBy('users.nombre','users.apellido','materias.id','materias.nombre',
-            'unidadacademica.facultad','unidadacademica.nombre')->get();
+            'unidadacademica.facultad','unidadacademica.nombre','materias.grupo')->get();
 
             return \PDF::loadView('pdf.reporte',['asistencias'=>$reporte,'fechainicio'=>$fechaini,'fechafin'=>$fechafin,'semanas'=>NULL])->setPaper('A4')->stream('control_asistencia.pdf');
            }

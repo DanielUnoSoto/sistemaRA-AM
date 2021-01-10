@@ -101,14 +101,15 @@
                 <tr> 
                     <th>Nombre</th>
                     <th>Apellido</th>
-                    {{-- <th>ID Materia</th> --}}
+                    <th>Grupo</th>
                     <th>Materia</th>
                     <th width="20" >Total Asistencias</th>
                     <th width="20">Total Repocision</th>
                     @if($semanas)
                         
-                    <th width="20">Total Faltas</th>
+                      <th width="20">Total Faltas</th>
                     @endif
+
                     <th width="20">Carga Horaria</th>
                     {{-- <th>Grupo</th>
                     <th>idM</th>
@@ -131,7 +132,7 @@
                 <tr>
                     <td>{{$asistencia->nombre}}</td>
                     <td>{{$asistencia->apellido}}</td>
-                    {{-- <td>{{$asistencia->IDmateria}}</td> --}}
+                    <td>{{$asistencia->grupo}}</td>
                     <td>{{$asistencia->materia}}</td>
 
                     <td>{{$asistencia->totalregistro}}</td>
