@@ -133,7 +133,7 @@ class AsistenciaController extends Controller
                     // ->where('materias.nombre','LIKE','%'.$sql.'%')
                     ->whereBetween('asistencias.fecha', [$fechainicio, $fechafin])
                     // ->groupBy('asistencias.id','users.nombre')
-                    ->orderBy('asistencias.id','desc')
+                    ->orderBy('asistencias.fecha','desc')
                     ->paginate(15);
 
 
