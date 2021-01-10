@@ -139,22 +139,10 @@
                     <td>{{$asistencia->totalrepo}}</td>
                     @if($semanas)
                         
-                    <td>{{$semanas*3 - $asistencia->totalregistro}}</td>
+                    <td>{{$semanas*2 - $asistencia->totalregistro}}</td>
                     @endif
                     <td>{{$asistencia->cargaHoraria}} hrs.</td>
-                    {{-- <td>{{$asistencia->dia}}</td>
-                    <td>{{$asistencia->grupo}}</td>
-                    <td>{{$asistencia->idmateria}}</td>
-                    <td>{{$asistencia->nombre}}</td>
-                    <td>{{$asistencia->tipoclase}}</td>
-                    <td>{{$asistencia->fecharepo}}</td>
-                    <td>{{$asistencia->contenido}}</td>
-                    <td>{{$asistencia->plataforma}}</td>
-                    <td>{{$asistencia->observacion}}</td>
-                    <td><a href="{{$asistencia->link}}" target="blank">Video</a></td> --}}
-                    {{-- <td class="align-middle">{{$asistencia->unidad}}</td>
-                    <td class="align-middle">{{$asistencia->facultad}}</td> --}}
-                    {{-- <td>{!!$asistencia->herramientas!!}</td> --}}
+                  
                    
                 </tr>
                 @endforeach                               
