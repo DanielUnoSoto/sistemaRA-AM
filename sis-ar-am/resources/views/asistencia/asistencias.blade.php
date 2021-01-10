@@ -100,7 +100,7 @@
                             </table>
                         </div> 
 
-                        {{-- {{$asistencia->render()}} --}}
+                         {{$asistencias->render()}}
                         
                     </div>
                 </div>
