@@ -155,7 +155,7 @@ class AsistenciaController extends Controller
                     // ->where('clases.user','=',$userId)
                     ->where('unidadacademica.jefe','=',$userId)
                     // ->groupBy('asistencias.id','users.nombre')
-                    ->orderBy('asistencias.id','desc')
+                    ->orderBy('asistencias.fecha','desc')
                     ->paginate(15);
 
                     
