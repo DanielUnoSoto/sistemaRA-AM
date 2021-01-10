@@ -18,7 +18,7 @@ class UserController extends Controller
              $sql=trim($request->get('buscarTexto'));
              $usuarios=DB::table('users')
              ->join('roles','users.rol','=','roles.id')
-             ->select('users.id','users.nombre',
+             ->select('users.id as iduser','users.nombre',
              'users.apellido','users.codsis','users.ci','users.email',
              'users.rol','users.password','roles.rol')
              ->where('users.nombre','LIKE','%'.$sql.'%')
@@ -145,8 +145,10 @@ class UserController extends Controller
            return Redirect::to("user");
      }
  
-     public function destroy(Request $request)
+     public function destroy($id)
      {
+        User::findOrFail($id)->delete();
+        return Redirect::to('user');
             //  //
             //  $user= User::findOrFail($request->id_usuario);
             

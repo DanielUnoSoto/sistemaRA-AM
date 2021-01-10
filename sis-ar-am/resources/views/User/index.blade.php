@@ -40,6 +40,7 @@
                                     <th>Email</th>
                                     {{-- <th>Usuario</th> --}}
                                     <th>Rol</th>
+                                    <th>Eliminar</th>
                                     {{-- <th>Estado</th> --}}
                                     {{-- <th>Editar</th> --}}
                                     {{-- <th>Cambiar Estado</th> --}}
@@ -60,7 +61,13 @@
                                     <td>{{$user->email}}</td>
                                     {{-- <td>{{$user->usuario}}</td> --}}
                                     <td>{{$user->rol}}</td>
-                            
+                                    <td class="text-center">
+                                        <form action="{{route('user.destroy',$user->iduser)}}" method="post">
+                                            {{csrf_field()}}
+                                           {{method_field('delete')}}
+                                           <button type="submit" class="btn btn-outline-danger btn-circle"><i class="fa fa-trash"></i></button>
+                                       </form>
+                               </td>
                                  
 
                                     {{-- <td>

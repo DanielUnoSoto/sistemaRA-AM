@@ -103,9 +103,13 @@
                     <th>Apellido</th>
                     {{-- <th>ID Materia</th> --}}
                     <th>Materia</th>
-                    <th>Total Asistencias</th>
-                    <th>Total Repociciones</th>
-                    <th>Carga Horaria</th>
+                    <th width="20" >Total Asistencias</th>
+                    <th width="20">Total Repocision</th>
+                    @if($semanas)
+                        
+                    <th width="20">Total Faltas</th>
+                    @endif
+                    <th width="20">Carga Horaria</th>
                     {{-- <th>Grupo</th>
                     <th>idM</th>
                     <th>Materia</th>
@@ -130,8 +134,12 @@
                     {{-- <td>{{$asistencia->IDmateria}}</td> --}}
                     <td>{{$asistencia->materia}}</td>
 
-                    <td>{{$asistencia->totalRegistro}}</td>
+                    <td>{{$asistencia->totalregistro}}</td>
                     <td>{{$asistencia->totalrepo}}</td>
+                    @if($semanas)
+                        
+                    <td>{{$semanas*3 - $asistencia->totalregistro}}</td>
+                    @endif
                     <td>{{$asistencia->cargaHoraria}} hrs.</td>
                     {{-- <td>{{$asistencia->dia}}</td>
                     <td>{{$asistencia->grupo}}</td>
